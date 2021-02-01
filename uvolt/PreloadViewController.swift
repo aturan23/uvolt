@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PreloadViewController.swift
 //  uvolt
 //
 //  Created by Turan Assylkhan on 01.02.2021.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PreloadViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
     }
-
-
 }
 

@@ -3,29 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFA25C7962A0066545B /* AppDelegate.swift */; };
-		4F778DFD25C7962A0066545B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFC25C7962A0066545B /* SceneDelegate.swift */; };
-		4F778DFF25C7962A0066545B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFE25C7962A0066545B /* ViewController.swift */; };
-		4F778E0225C7962A0066545B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0025C7962A0066545B /* Main.storyboard */; };
+		4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFE25C7962A0066545B /* PreloadViewController.swift */; };
 		4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F778E0325C7962A0066545B /* uvolt.xcdatamodeld */; };
 		4F778E0725C7962C0066545B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0625C7962C0066545B /* Assets.xcassets */; };
 		4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0825C7962C0066545B /* LaunchScreen.storyboard */; };
+		4F778E1325C796610066545B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F778E1225C796610066545B /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4F778DF725C7962A0066545B /* uvolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uvolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F778DFA25C7962A0066545B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F778DFC25C7962A0066545B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4F778DFE25C7962A0066545B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4F778E0125C7962A0066545B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F778DFE25C7962A0066545B /* PreloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadViewController.swift; sourceTree = "<group>"; };
 		4F778E0425C7962A0066545B /* uvolt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uvolt.xcdatamodel; sourceTree = "<group>"; };
 		4F778E0625C7962C0066545B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F778E0925C7962C0066545B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F778E0B25C7962C0066545B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F778E1225C796610066545B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F778E1325C796610066545B /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +43,7 @@
 			children = (
 				4F778DF925C7962A0066545B /* uvolt */,
 				4F778DF825C7962A0066545B /* Products */,
+				4F778E1125C796610066545B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,15 +59,21 @@
 			isa = PBXGroup;
 			children = (
 				4F778DFA25C7962A0066545B /* AppDelegate.swift */,
-				4F778DFC25C7962A0066545B /* SceneDelegate.swift */,
-				4F778DFE25C7962A0066545B /* ViewController.swift */,
-				4F778E0025C7962A0066545B /* Main.storyboard */,
+				4F778DFE25C7962A0066545B /* PreloadViewController.swift */,
 				4F778E0625C7962C0066545B /* Assets.xcassets */,
 				4F778E0825C7962C0066545B /* LaunchScreen.storyboard */,
 				4F778E0B25C7962C0066545B /* Info.plist */,
 				4F778E0325C7962A0066545B /* uvolt.xcdatamodeld */,
 			);
 			path = uvolt;
+			sourceTree = "<group>";
+		};
+		4F778E1125C796610066545B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F778E1225C796610066545B /* SnapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +86,7 @@
 				4F778DF325C7962A0066545B /* Sources */,
 				4F778DF425C7962A0066545B /* Frameworks */,
 				4F778DF525C7962A0066545B /* Resources */,
+				4F778E1625C796B70066545B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -130,11 +137,32 @@
 			files = (
 				4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */,
 				4F778E0725C7962C0066545B /* Assets.xcassets in Resources */,
-				4F778E0225C7962A0066545B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F778E1625C796B70066545B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/input.xcfilelist",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+				"$(SRCROOT)/output.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F778DF325C7962A0066545B /* Sources */ = {
@@ -142,23 +170,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */,
-				4F778DFF25C7962A0066545B /* ViewController.swift in Sources */,
+				4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */,
 				4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */,
-				4F778DFD25C7962A0066545B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4F778E0025C7962A0066545B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4F778E0125C7962A0066545B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4F778E0825C7962C0066545B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,7 +309,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A439DVJ2X6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = uvolt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aturan23.uvolt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,7 +332,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A439DVJ2X6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = uvolt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,7 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = aturan23.uvolt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
