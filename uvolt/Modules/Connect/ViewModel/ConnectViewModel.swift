@@ -6,6 +6,8 @@
 //  Copyright © 2021 Assylkhan Turan. All rights reserved.
 //
 
+import Foundation
+
 class ConnectViewModel: ConnectViewOutput {
 
     // ------------------------------
@@ -28,11 +30,14 @@ class ConnectViewModel: ConnectViewOutput {
 
     func didLoad() {
         fetchDevices()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            self?.showMainPage()
+        }
     }
     
     // 3.2. Метод перехода к экрану MainScreen
     func showMainPage() {
-        
+        router?.routeToMain()
     }
     
     // ------------------------------

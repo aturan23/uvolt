@@ -43,6 +43,9 @@ extension Container {
         self.register(ConnectModuleAssembly.self) { _ in
             ConnectModuleAssembly(injection: self)
         }
+        self.register(MainModuleAssembly.self) { _ in
+            MainModuleAssembly(injection: self)
+        }
         return self
     }
     
