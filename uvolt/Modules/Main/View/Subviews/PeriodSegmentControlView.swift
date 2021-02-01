@@ -40,9 +40,9 @@ class PeriodSegmentControlView: UIView {
     // MARK: - UI components
     // ------------------------------
     
-    private let todayView = ButtonView(text: "TODAY".localized())
-    private let weekView = ButtonView(text: "WEEK".localized())
-    private let allTimeView = ButtonView(text: "ALL_TIME".localized())
+    private let todayView = ButtonView(text: "TODAY".localized(up: true))
+    private let weekView = ButtonView(text: "WEEK".localized(up: true))
+    private let allTimeView = ButtonView(text: "ALL_TIME".localized(up: true))
 
     // ------------------------------
     // MARK: - Life cycle
@@ -122,7 +122,7 @@ private class ButtonView: UIView {
     init(text: String) {
         super.init(frame: .zero)
         setupViews()
-        titleLabel.text = text.uppercased()
+        titleLabel.text = text
     }
     
     required init?(coder: NSCoder) {
