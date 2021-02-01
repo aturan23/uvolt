@@ -40,6 +40,7 @@
 		4F778E0725C7962C0066545B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0625C7962C0066545B /* Assets.xcassets */; };
 		4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0825C7962C0066545B /* LaunchScreen.storyboard */; };
 		4F778E1325C796610066545B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F778E1225C796610066545B /* SnapKit.framework */; };
+		4F892E8525C7E04700BA4F12 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892E8425C7E04700BA4F12 /* DeviceModel.swift */; };
 		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
 		9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */; };
 		A856DD8DCE2CE80035F23371 /* ConnectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */; };
@@ -88,6 +89,7 @@
 		4F778E0925C7962C0066545B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F778E0B25C7962C0066545B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F778E1225C796610066545B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		4F892E8425C7E04700BA4F12 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
 		59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadAssembly.swift; sourceTree = "<group>"; };
 		63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadModuleInput.swift; sourceTree = "<group>"; };
@@ -125,7 +127,6 @@
 				6F454AE3386F4D768B53FBCF /* PreloadModuleOutput.swift */,
 				F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */,
 			);
-			name = ViewModel;
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
@@ -135,7 +136,6 @@
 				8342D4A6BD105550485A514C /* ConnectRouterInput.swift */,
 				90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -146,7 +146,6 @@
 				83520514EB5B2406E2F721E2 /* ConnectViewController.swift */,
 				B8B6199337BBD9B5F1B32528 /* ConnectViewAdapter.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -157,7 +156,6 @@
 				8F400DEE402B5DD6BFA9CA18 /* PreloadViewController.swift */,
 				7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -166,7 +164,6 @@
 			children = (
 				59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -327,6 +324,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4F892E8225C7E02300BA4F12 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4F892E8425C7E04700BA4F12 /* DeviceModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		5EEB71A67BDF9667B43FF6D8 /* Preload */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,7 +340,6 @@
 				CC63FDAE54AE4CFE0FE356CD /* Router */,
 				4EF51561409121E31AADC84E /* Assembly */,
 			);
-			name = Preload;
 			path = Preload;
 			sourceTree = "<group>";
 		};
@@ -344,7 +348,6 @@
 			children = (
 				03B65D6899334F2BED97483B /* ConnectAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -354,7 +357,6 @@
 				D66E53869EFA32ACCFED001F /* PreloadRouterInput.swift */,
 				ACD694CFDD5428D9E35475D9 /* PreloadRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -365,19 +367,18 @@
 				55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */,
 				0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */,
 			);
-			name = ViewModel;
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F0942CA66F036B65C46E149F /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				4F892E8225C7E02300BA4F12 /* Entity */,
 				29BB4319DB9AA7796E488D06 /* View */,
 				CEA67555E96A10429E75463E /* ViewModel */,
 				1CEB00E54FFBCA5806B798D5 /* Router */,
 				A12D43F12C2CE446B1A613D0 /* Assembly */,
 			);
-			name = Connect;
 			path = Connect;
 			sourceTree = "<group>";
 		};
@@ -490,6 +491,7 @@
 				4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */,
 				4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */,
 				4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */,
+				4F892E8525C7E04700BA4F12 /* DeviceModel.swift in Sources */,
 				4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */,
 				4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */,
 				4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */,
