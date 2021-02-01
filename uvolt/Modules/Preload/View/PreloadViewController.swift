@@ -6,9 +6,8 @@
 //  Copyright © 2021 Turan Assylkhan. All rights reserved.
 //
 
-import UIKit
 
-class PreloadViewController: UIViewController {
+class PreloadViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

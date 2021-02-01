@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F03A09625C7A051004E64B9 /* PreloadModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */; };
+		4F03A09C25C7A1A2004E64B9 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F03A09B25C7A1A2004E64B9 /* Swinject.framework */; };
+		4F03A0A025C7A1A6004E64B9 /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F03A09F25C7A1A6004E64B9 /* SwinjectAutoregistration.framework */; };
+		4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0A325C7A1C1004E64B9 /* BaseModuleAssembly.swift */; };
+		4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0A625C7A1DE004E64B9 /* Inject.swift */; };
+		4F03A0AB25C7A393004E64B9 /* SupportedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0AA25C7A393004E64B9 /* SupportedLanguage.swift */; };
+		4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0AF25C7A3C4004E64B9 /* GlobalConstants.swift */; };
+		4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0B325C7A44A004E64B9 /* String+Localization.swift */; };
+		4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0B625C7A466004E64B9 /* LocalLocalizer.swift */; };
+		4F03A0BD25C7A4E1004E64B9 /* str-localization-en in Resources */ = {isa = PBXBuildFile; fileRef = 4F03A0BC25C7A4C6004E64B9 /* str-localization-en */; };
+		4F03A0C125C7A4E6004E64B9 /* str-localization-ru in Resources */ = {isa = PBXBuildFile; fileRef = 4F03A0BB25C7A4C6004E64B9 /* str-localization-ru */; };
+		4F03A0C525C7A51F004E64B9 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0C425C7A51F004E64B9 /* Notifications.swift */; };
+		4F03A0C825C7A5DC004E64B9 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0C725C7A5DC004E64B9 /* Localizer.swift */; };
+		4F03A0CD25C7A7D8004E64B9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0CC25C7A7D8004E64B9 /* BaseViewController.swift */; };
+		4F03A0D225C7A88E004E64B9 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0D125C7A88E004E64B9 /* ContainerExtension.swift */; };
+		4F03A0D625C7A8C8004E64B9 /* RootUIControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0D525C7A8C8004E64B9 /* RootUIControllerType.swift */; };
+		4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0DA25C7AA35004E64B9 /* AppCoordinating.swift */; };
+		4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */; };
 		4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFA25C7962A0066545B /* AppDelegate.swift */; };
 		4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFE25C7962A0066545B /* PreloadViewController.swift */; };
 		4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F778E0325C7962A0066545B /* uvolt.xcdatamodeld */; };
@@ -16,6 +34,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreloadModuleAssembly.swift; path = ../../../../../PreloadModuleAssembly.swift; sourceTree = "<group>"; };
+		4F03A09B25C7A1A2004E64B9 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		4F03A09F25C7A1A6004E64B9 /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
+		4F03A0A325C7A1C1004E64B9 /* BaseModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModuleAssembly.swift; sourceTree = "<group>"; };
+		4F03A0A625C7A1DE004E64B9 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		4F03A0AA25C7A393004E64B9 /* SupportedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedLanguage.swift; sourceTree = "<group>"; };
+		4F03A0AF25C7A3C4004E64B9 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		4F03A0B325C7A44A004E64B9 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		4F03A0B625C7A466004E64B9 /* LocalLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLocalizer.swift; sourceTree = "<group>"; };
+		4F03A0BB25C7A4C6004E64B9 /* str-localization-ru */ = {isa = PBXFileReference; lastKnownFileType = text; path = "str-localization-ru"; sourceTree = "<group>"; };
+		4F03A0BC25C7A4C6004E64B9 /* str-localization-en */ = {isa = PBXFileReference; lastKnownFileType = text; path = "str-localization-en"; sourceTree = "<group>"; };
+		4F03A0C425C7A51F004E64B9 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		4F03A0C725C7A5DC004E64B9 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		4F03A0CC25C7A7D8004E64B9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4F03A0D125C7A88E004E64B9 /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
+		4F03A0D525C7A8C8004E64B9 /* RootUIControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIControllerType.swift; sourceTree = "<group>"; };
+		4F03A0DA25C7AA35004E64B9 /* AppCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinating.swift; sourceTree = "<group>"; };
+		4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4F778DF725C7962A0066545B /* uvolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uvolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F778DFA25C7962A0066545B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F778DFE25C7962A0066545B /* PreloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadViewController.swift; sourceTree = "<group>"; };
@@ -31,13 +67,147 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F03A0A025C7A1A6004E64B9 /* SwinjectAutoregistration.framework in Frameworks */,
 				4F778E1325C796610066545B /* SnapKit.framework in Frameworks */,
+				4F03A09C25C7A1A2004E64B9 /* Swinject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F03A08E25C79F95004E64B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0B925C7A4A9004E64B9 /* localizations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F03A08F25C79F99004E64B9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A09025C79F9E004E64B9 /* Preload */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4F03A09025C79F9E004E64B9 /* Preload */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A09425C79FAC004E64B9 /* Router */,
+				4F03A09325C79FAA004E64B9 /* View */,
+				4F03A09225C79FA6004E64B9 /* ViewModel */,
+				4F03A09125C79FA2004E64B9 /* Assembly */,
+			);
+			path = Preload;
+			sourceTree = "<group>";
+		};
+		4F03A09125C79FA2004E64B9 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		4F03A09225C79FA6004E64B9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F03A09325C79FAA004E64B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F778DFE25C7962A0066545B /* PreloadViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F03A09425C79FAC004E64B9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4F03A09925C7A178004E64B9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0D925C7AA13004E64B9 /* Coordinators */,
+				4F03A0D025C7A881004E64B9 /* Extensions */,
+				4F03A0CB25C7A7A6004E64B9 /* UIKit */,
+				4F03A09A25C7A186004E64B9 /* BaseObjects */,
+				4F03A0A925C7A37A004E64B9 /* Localization */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		4F03A09A25C7A186004E64B9 /* BaseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0A325C7A1C1004E64B9 /* BaseModuleAssembly.swift */,
+				4F03A0A625C7A1DE004E64B9 /* Inject.swift */,
+			);
+			path = BaseObjects;
+			sourceTree = "<group>";
+		};
+		4F03A0A925C7A37A004E64B9 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0AA25C7A393004E64B9 /* SupportedLanguage.swift */,
+				4F03A0C725C7A5DC004E64B9 /* Localizer.swift */,
+				4F03A0B625C7A466004E64B9 /* LocalLocalizer.swift */,
+				4F03A0B325C7A44A004E64B9 /* String+Localization.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		4F03A0AE25C7A3B6004E64B9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0AF25C7A3C4004E64B9 /* GlobalConstants.swift */,
+				4F03A0C425C7A51F004E64B9 /* Notifications.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4F03A0B925C7A4A9004E64B9 /* localizations */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0BC25C7A4C6004E64B9 /* str-localization-en */,
+				4F03A0BB25C7A4C6004E64B9 /* str-localization-ru */,
+			);
+			path = localizations;
+			sourceTree = "<group>";
+		};
+		4F03A0CB25C7A7A6004E64B9 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0CC25C7A7D8004E64B9 /* BaseViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		4F03A0D025C7A881004E64B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0D125C7A88E004E64B9 /* ContainerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4F03A0D925C7AA13004E64B9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0DA25C7AA35004E64B9 /* AppCoordinating.swift */,
+				4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		4F778DEE25C7962A0066545B = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +228,12 @@
 		4F778DF925C7962A0066545B /* uvolt */ = {
 			isa = PBXGroup;
 			children = (
+				4F03A0AE25C7A3B6004E64B9 /* Core */,
+				4F03A08F25C79F99004E64B9 /* Modules */,
+				4F03A09925C7A178004E64B9 /* Source */,
+				4F03A08E25C79F95004E64B9 /* Resources */,
 				4F778DFA25C7962A0066545B /* AppDelegate.swift */,
-				4F778DFE25C7962A0066545B /* PreloadViewController.swift */,
+				4F03A0D525C7A8C8004E64B9 /* RootUIControllerType.swift */,
 				4F778E0625C7962C0066545B /* Assets.xcassets */,
 				4F778E0825C7962C0066545B /* LaunchScreen.storyboard */,
 				4F778E0B25C7962C0066545B /* Info.plist */,
@@ -71,6 +245,8 @@
 		4F778E1125C796610066545B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F03A09F25C7A1A6004E64B9 /* SwinjectAutoregistration.framework */,
+				4F03A09B25C7A1A2004E64B9 /* Swinject.framework */,
 				4F778E1225C796610066545B /* SnapKit.framework */,
 			);
 			name = Frameworks;
@@ -137,6 +313,8 @@
 			files = (
 				4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */,
 				4F778E0725C7962C0066545B /* Assets.xcassets in Resources */,
+				4F03A0BD25C7A4E1004E64B9 /* str-localization-en in Resources */,
+				4F03A0C125C7A4E6004E64B9 /* str-localization-ru in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,9 +347,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F03A0D625C7A8C8004E64B9 /* RootUIControllerType.swift in Sources */,
+				4F03A0CD25C7A7D8004E64B9 /* BaseViewController.swift in Sources */,
+				4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */,
+				4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */,
+				4F03A0AB25C7A393004E64B9 /* SupportedLanguage.swift in Sources */,
 				4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */,
+				4F03A0C525C7A51F004E64B9 /* Notifications.swift in Sources */,
+				4F03A0C825C7A5DC004E64B9 /* Localizer.swift in Sources */,
 				4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */,
+				4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */,
+				4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */,
+				4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */,
 				4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */,
+				4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */,
+				4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */,
+				4F03A09625C7A051004E64B9 /* PreloadModuleAssembly.swift in Sources */,
+				4F03A0D225C7A88E004E64B9 /* ContainerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

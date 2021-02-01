@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Swinject
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RootUIControllerType {
 
     var window: UIWindow?
 
@@ -21,7 +22,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
         
+        Inject.depContainer.register(RootUIControllerType.self) { _ in self }
+        
         return true
+    }
+    
+    func setupRootViewController() {
+        guard
+            let window = window,
+            let appCoordinator = Inject.depContainer
+                .inject(AppCoordinating.self, argument: window)
+            else {
+                return
+        }
+        appCoordinator.start()
+    }
+    
+    func setupRootViewControllerAndSuggestAlternativeLoginMethods() {
+        // there login page opening logic if exist
+        
+        setupRootViewController()
     }
 
     // MARK: - Core Data stack
