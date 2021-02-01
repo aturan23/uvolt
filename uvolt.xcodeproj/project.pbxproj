@@ -45,6 +45,8 @@
 		4F892E8525C7E04700BA4F12 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892E8425C7E04700BA4F12 /* DeviceModel.swift */; };
 		4F892EA525C7E78300BA4F12 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EA425C7E78300BA4F12 /* ConnectTableViewCell.swift */; };
 		4F892EAA25C7EC0700BA4F12 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EA925C7EC0700BA4F12 /* ReusableView.swift */; };
+		4F892EB025C8096D00BA4F12 /* PeriodSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */; };
+		4F892EB525C814FD00BA4F12 /* SegmentPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EB425C814FD00BA4F12 /* SegmentPeriod.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		8A18002DEADF174E71129E1D /* MainModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB174DDB7071BA09660AFB /* MainModuleInput.swift */; };
 		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
@@ -106,6 +108,8 @@
 		4F892E8425C7E04700BA4F12 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
 		4F892EA425C7E78300BA4F12 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
 		4F892EA925C7EC0700BA4F12 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSegmentControlView.swift; sourceTree = "<group>"; };
+		4F892EB425C814FD00BA4F12 /* SegmentPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentPeriod.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -164,12 +168,12 @@
 		1EF0B1ED9FFC295925BB3364 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4F892EB325C814EE00BA4F12 /* Entity */,
 				39F06A77342BEEE161B7848F /* View */,
 				CEC406BE9B2DA14C4DCB381C /* ViewModel */,
 				CB35FCBA4F9903270272F356 /* Router */,
 				B9C152C99226DEFD7B53111E /* Assembly */,
 			);
-			name = Main;
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -187,11 +191,11 @@
 		39F06A77342BEEE161B7848F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F892EAE25C8091500BA4F12 /* Subviews */,
 				B0624909E1C4EC4F40F8FFA4 /* MainViewProtocols.swift */,
 				7016835B961426D6E4C2B636 /* MainViewController.swift */,
 				1A0459D25F5D9FEAD5ADDB67 /* MainViewAdapter.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -396,6 +400,22 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		4F892EAE25C8091500BA4F12 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		4F892EB325C814EE00BA4F12 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4F892EB425C814FD00BA4F12 /* SegmentPeriod.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		5EEB71A67BDF9667B43FF6D8 /* Preload */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,7 +440,6 @@
 			children = (
 				B7D621962F13555E9369CAE2 /* MainAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -430,7 +449,6 @@
 				893BDCA647ABFC7BC01AE4A5 /* MainRouterInput.swift */,
 				29158C21D8F9A5DB97E4AFF8 /* MainRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -460,7 +478,6 @@
 				0006DA7925CED666FB3AFC89 /* MainModuleOutput.swift */,
 				50014610B62F1BFF09034904 /* MainViewModel.swift */,
 			);
-			name = ViewModel;
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
@@ -585,6 +602,7 @@
 				4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */,
 				4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */,
 				4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */,
+				4F892EB025C8096D00BA4F12 /* PeriodSegmentControlView.swift in Sources */,
 				4F892E8525C7E04700BA4F12 /* DeviceModel.swift in Sources */,
 				4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */,
 				4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */,
@@ -598,6 +616,7 @@
 				1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */,
 				F5CC74DD38DD0C518CE0F518 /* PreloadModuleOutput.swift in Sources */,
 				4F892EA525C7E78300BA4F12 /* ConnectTableViewCell.swift in Sources */,
+				4F892EB525C814FD00BA4F12 /* SegmentPeriod.swift in Sources */,
 				984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */,
 				D01A31F1C4ACA49E5A61C550 /* PreloadRouterInput.swift in Sources */,
 				B678598C6048D9BC9B3290EB /* PreloadRouter.swift in Sources */,

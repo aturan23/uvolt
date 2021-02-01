@@ -20,6 +20,8 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - UI components
     // ------------------------------
 
+    private let segmentView = PeriodSegmentControlView()
+    
     // ------------------------------
     // MARK: - Life cycle
     // ------------------------------
@@ -41,17 +43,20 @@ class MainViewController: BaseViewController, MainViewInput {
     // ------------------------------
 
     private func setupViews() {
-        view.backgroundColor = .orange
+        view.backgroundColor = .black
 
         setupViewsHierarchy()
         setupConstraints()
     }
 
     private func setupViewsHierarchy() {
-
+        [segmentView].forEach(view.addSubview(_:))
     }
 
     private func setupConstraints() {
-        
+        segmentView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaTopInset)
+            $0.left.right.equalToSuperview().inset(20)
+        }
     }
 }
