@@ -18,12 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootUIControllerType {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let controller = PreloadViewController()
-        window?.rootViewController = UINavigationController(rootViewController: controller)
         window?.makeKeyAndVisible()
         
         Inject.depContainer.register(RootUIControllerType.self) { _ in self }
-        
+        setupRootViewControllerAndSuggestAlternativeLoginMethods()
         return true
     }
     
