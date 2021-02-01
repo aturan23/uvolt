@@ -12,4 +12,5 @@ protocol PreloadViewInput: class {
 
 protocol PreloadViewOutput {
     func didLoad()
+    func showConnectPage()
 }

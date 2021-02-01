@@ -24,9 +24,10 @@ class PreloadViewModel: PreloadViewOutput {
 
     func didLoad() {
         view?.display(viewAdapter: PreloadViewAdapter())
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            self?.router?.routeToConnect()
-        }
+    }
+    
+    func showConnectPage() {
+        router?.routeToConnect()
     }
     
     // ------------------------------
