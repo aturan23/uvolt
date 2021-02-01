@@ -42,6 +42,7 @@ class ConnectViewModel: ConnectViewOutput {
         guard let device = device else { return }
         print("Name: ", device.name)
         print("UUDID: ", device.uudid)
+        showMainPage()
     }
     
     // ------------------------------
