@@ -100,4 +100,10 @@ extension ConnectViewController: UITableViewDelegate, UITableViewDataSource {
         cell.display(device: device)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // Метод реагирует так же как и на нажатий на connect кнопку. При желаний можно включить
+//        output?.didSelect(device: devices[indexPath.row])
+    }
 }

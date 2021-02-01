@@ -13,4 +13,5 @@ protocol ConnectViewInput: class {
 protocol ConnectViewOutput {
     func didLoad()
     func showMainPage()
+    func didSelect(device: DeviceModel?)
 }

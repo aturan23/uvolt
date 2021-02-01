@@ -10,4 +10,5 @@
 struct DeviceModel {
     let name: String
     let uudid: String
+    var continueDidTap: (() -> ())? = nil
 }

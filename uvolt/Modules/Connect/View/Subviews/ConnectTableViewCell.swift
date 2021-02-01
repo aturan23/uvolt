@@ -15,9 +15,10 @@ class ConnectTableViewCell: UITableViewCell {
     // ------------------------------
     
     private enum Constants {
-        static let buttonHeight: CGFloat = 28
+        static let buttonViewHeight: CGFloat = 28
     }
     private let labelFactory = LabelFactory()
+    var didTap: (() -> ())?
     
     // ------------------------------
     // MARK: - UI components
@@ -25,10 +26,18 @@ class ConnectTableViewCell: UITableViewCell {
     
     private lazy var titleLabel = labelFactory.make(withStyle: .headingH5, textColor: .white)
     private lazy var subtitleLabel = labelFactory.make(withStyle: .smallHelper, textColor: .white)
-    private let connectButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("CONNECT".localized().lowercased(), for: .normal)
-        return button
+    private lazy var buttonLabel = labelFactory.make(
+        withStyle: .headingH5,
+        text: "CONNECT".localized().lowercased(),
+        textColor: .white)
+    private lazy var buttonView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Color.grayBackground
+        view.layer.cornerRadius = Constants.buttonViewHeight / 2
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(continueDidTap))
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(gestureRecognizer)
+        return view
     }()
 
     // ------------------------------
@@ -47,41 +56,54 @@ class ConnectTableViewCell: UITableViewCell {
     func display(device: DeviceModel) {
         titleLabel.text = device.name
         subtitleLabel.text = device.uudid
+        didTap = device.continueDidTap
     }
     
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
+    
+    @objc private func continueDidTap() {
+        didTap?()
+    }
 
     private func setupViews() {
         backgroundColor = .clear
-        connectButton.backgroundColor = Color.grayBackground
-        connectButton.layer.cornerRadius = Constants.buttonHeight / 2
+        subtitleLabel.numberOfLines = 1
         
         setupViewsHierarchy()
         setupConstraints()
     }
 
     private func setupViewsHierarchy() {
-        [titleLabel, subtitleLabel, connectButton].forEach(contentView.addSubview(_:))
+        [titleLabel,
+         subtitleLabel,
+         buttonView,
+         buttonView].forEach(contentView.addSubview(_:))
+        buttonView.addSubview(buttonLabel)
     }
     
     private func setupConstraints() {
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(16)
             $0.top.equalTo(20)
-            $0.right.equalTo(connectButton.snp.left).offset(-20)
+            $0.right.equalTo(buttonView.snp.left).offset(-20)
         }
         subtitleLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(2)
             $0.left.equalTo(16)
-            $0.right.equalTo(connectButton.snp.left).offset(-20)
+            $0.right.equalTo(buttonView.snp.left).offset(-20)
             $0.bottom.equalTo(-2)
         }
-        connectButton.snp.makeConstraints {
+        buttonView.snp.makeConstraints {
             $0.right.equalTo(-16)
-            $0.height.equalTo(Constants.buttonHeight)
+            $0.height.equalTo(Constants.buttonViewHeight)
+            $0.width.equalTo(85)
             $0.centerY.equalToSuperview()
+        }
+        buttonLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.left.right.equalToSuperview().inset(8)
         }
     }
 }

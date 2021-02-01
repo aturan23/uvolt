@@ -30,9 +30,6 @@ class ConnectViewModel: ConnectViewOutput {
 
     func didLoad() {
         fetchDevices()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            self?.showMainPage()
-        }
     }
     
     // 3.2. Метод перехода к экрану MainScreen
@@ -40,12 +37,20 @@ class ConnectViewModel: ConnectViewOutput {
         router?.routeToMain()
     }
     
+    // Метод нажатия на коннект либо на ячейку
+    func didSelect(device: DeviceModel?) {
+        guard let device = device else { return }
+        print("Name: ", device.name)
+        print("UUDID: ", device.uudid)
+    }
+    
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
     
     private func fetchDevices() {
-        let devicesMock: [DeviceModel] = Array(repeating: .init(name: "BTName", uudid: "123e4567-e89b-12d3-a456-426655440000"), count: 4)
+        var devicesMock: [DeviceModel] = Array(repeating: .init(name: "BTName", uudid: "123e4567-e89b-12d3-a456-426655440000"), count: 4)
+        modify(devices: &devicesMock)
         devices = devicesMock
     }
     
@@ -57,6 +62,14 @@ class ConnectViewModel: ConnectViewOutput {
     // 3.4. Метод очистки всего списка
     private func clearDevices() {
         devices = []
+    }
+    
+    private func modify(devices: inout [DeviceModel]) {
+        devices = devices.map({ (item) in
+            return .init(name: item.name, uudid: item.uudid) { [weak self] in
+                self?.didSelect(device: item)
+            }
+        })
     }
 }
 
