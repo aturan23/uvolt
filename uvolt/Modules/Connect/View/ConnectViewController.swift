@@ -79,7 +79,8 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
     }
     private func setupConstraints() {
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(safeAreaTopInset)
+            $0.width.bottom.equalToSuperview()
         }
     }
 }
