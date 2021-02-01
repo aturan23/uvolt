@@ -10,4 +10,24 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
+    // ------------------------------
+    // MARK: - Properties
+    // ------------------------------
+    
+    var safeAreaTopInset: CGFloat {
+        return UIApplication.shared.statusBarFrame.height
+            + UINavigationController().navigationBar.bounds.height
+    }
+    
+    var safeAreaBottomInset: CGFloat {
+        return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+    }
+    
+    // ------------------------------
+    // MARK: - UI components
+    // ------------------------------
+    
+    // ------------------------------
+    // MARK: - Life cycle
+    // ------------------------------
 }
