@@ -14,11 +14,36 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
     // MARK: - Properties
     // ------------------------------
 
+    private enum Constants {
+        static let tableViewEstimatedRowHeight: CGFloat = 60
+    }
     var output: ConnectViewOutput?
-
+    private var devices: [DeviceModel] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     // ------------------------------
     // MARK: - UI components
     // ------------------------------
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorColor = .white
+        tableView.estimatedRowHeight = Constants.tableViewEstimatedRowHeight
+        let emptyView = UIView(frame: CGRect.zero)
+        emptyView.frame.size.height = CGFloat.leastNormalMagnitude
+        tableView.tableHeaderView = emptyView
+        tableView.tableFooterView = emptyView
+        tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .clear
+        tableView.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
+        tableView.register(ConnectTableViewCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
 
     // ------------------------------
     // MARK: - Life cycle
@@ -28,24 +53,50 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
         super.viewDidLoad()
         setupViews()
         output?.didLoad()
-        view.backgroundColor = .orange
     }
 
     // ------------------------------
     // MARK: - ConnectViewInput
     // ------------------------------
 
-    func display(viewAdapter: ConnectViewAdapter) { }
+    func display(viewAdapter: ConnectViewAdapter) {
+        devices = viewAdapter.devices
+    }
 
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
 
     private func setupViews() {
+        view.backgroundColor = .black
+        
         setupViewsHierarchy()
         setupConstraints()
     }
 
-    private func setupViewsHierarchy() { }
-    private func setupConstraints() { }
+    private func setupViewsHierarchy() {
+        [tableView].forEach(view.addSubview(_:))
+    }
+    private func setupConstraints() {
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+}
+
+// ------------------------------
+// MARK: - UITableViewDelegate & UITableViewDataSource methods
+// ------------------------------
+
+extension ConnectViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        devices.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ConnectTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        let device = devices[indexPath.row]
+        cell.display(device: device)
+        return cell
+    }
 }

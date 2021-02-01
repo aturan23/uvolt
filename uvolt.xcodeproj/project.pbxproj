@@ -41,6 +41,8 @@
 		4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0825C7962C0066545B /* LaunchScreen.storyboard */; };
 		4F778E1325C796610066545B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F778E1225C796610066545B /* SnapKit.framework */; };
 		4F892E8525C7E04700BA4F12 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892E8425C7E04700BA4F12 /* DeviceModel.swift */; };
+		4F892EA525C7E78300BA4F12 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EA425C7E78300BA4F12 /* ConnectTableViewCell.swift */; };
+		4F892EAA25C7EC0700BA4F12 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EA925C7EC0700BA4F12 /* ReusableView.swift */; };
 		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
 		9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */; };
 		A856DD8DCE2CE80035F23371 /* ConnectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */; };
@@ -90,6 +92,8 @@
 		4F778E0B25C7962C0066545B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F778E1225C796610066545B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		4F892E8425C7E04700BA4F12 /* DeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModel.swift; sourceTree = "<group>"; };
+		4F892EA425C7E78300BA4F12 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
+		4F892EA925C7EC0700BA4F12 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
 		59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadAssembly.swift; sourceTree = "<group>"; };
 		63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadModuleInput.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		29BB4319DB9AA7796E488D06 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F892EA325C7E77400BA4F12 /* Subviews */,
 				4557EB2C602D5853F6E906C4 /* ConnectViewProtocols.swift */,
 				83520514EB5B2406E2F721E2 /* ConnectViewController.swift */,
 				B8B6199337BBD9B5F1B32528 /* ConnectViewAdapter.swift */,
@@ -237,6 +242,7 @@
 		4F03A0CB25C7A7A6004E64B9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4F892EA825C7EC0000BA4F12 /* Common */,
 				4F03A0E925C7AF5A004E64B9 /* Extensions */,
 				4F03A0E125C7AE3E004E64B9 /* Label */,
 				4F03A0CC25C7A7D8004E64B9 /* BaseViewController.swift */,
@@ -330,6 +336,22 @@
 				4F892E8425C7E04700BA4F12 /* DeviceModel.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		4F892EA325C7E77400BA4F12 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4F892EA425C7E78300BA4F12 /* ConnectTableViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		4F892EA825C7EC0000BA4F12 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4F892EA925C7EC0700BA4F12 /* ReusableView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		5EEB71A67BDF9667B43FF6D8 /* Preload */ = {
@@ -503,6 +525,7 @@
 				9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */,
 				1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */,
 				F5CC74DD38DD0C518CE0F518 /* PreloadModuleOutput.swift in Sources */,
+				4F892EA525C7E78300BA4F12 /* ConnectTableViewCell.swift in Sources */,
 				984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */,
 				D01A31F1C4ACA49E5A61C550 /* PreloadRouterInput.swift in Sources */,
 				B678598C6048D9BC9B3290EB /* PreloadRouter.swift in Sources */,
@@ -510,6 +533,7 @@
 				0C6BD52DFD68761D476A0591 /* ConnectViewProtocols.swift in Sources */,
 				E740AB17EC41F88A13073A58 /* ConnectViewController.swift in Sources */,
 				C264B4E0D9CEDED8082BE17E /* ConnectViewAdapter.swift in Sources */,
+				4F892EAA25C7EC0700BA4F12 /* ReusableView.swift in Sources */,
 				0265422410CB110CA74D4D08 /* ConnectModuleInput.swift in Sources */,
 				30A93AF0349FB1DF59122BB1 /* ConnectModuleOutput.swift in Sources */,
 				35053AF4FF0290F3787CCCC5 /* ConnectViewModel.swift in Sources */,

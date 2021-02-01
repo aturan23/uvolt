@@ -8,4 +8,12 @@
 
 class ConnectRouter: ConnectRouterInput {
 	weak var viewController: BaseViewController?
+    
+    // ------------------------------
+    // MARK: - ConnectRouterInput methods
+    // ------------------------------
+    
+    func routeToMain() {
+        
+    }
 }

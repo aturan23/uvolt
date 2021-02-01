@@ -12,4 +12,5 @@ protocol ConnectViewInput: class {
 
 protocol ConnectViewOutput {
     func didLoad()
+    func showMainPage()
 }

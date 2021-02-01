@@ -7,4 +7,6 @@
 //
 
 /// Default ViewModel passed to View layer for displaying
-struct ConnectViewAdapter { }
+struct ConnectViewAdapter {
+    var devices: [DeviceModel] = []
+}
