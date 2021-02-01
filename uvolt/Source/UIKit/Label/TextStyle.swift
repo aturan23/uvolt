@@ -19,7 +19,7 @@ public enum TextStyle {
     /// Heading / H5 - 17 Semibold
     case headingH5
     
-    /// Paragraph / Body - 17 Regular
+    /// Paragraph / Body - 15 Semibold
     case paragraphBody
     
     /// Paragraph / Secondary - 15 Regular
@@ -71,7 +71,7 @@ public enum TextStyle {
         case .headingH5:
             return .semibold(size: 17)
         case .paragraphBody:
-            return .regular(size: 17)
+            return .semibold(size: 15)
         case .paragraphSecondary:
             return .regular(size: 15)
         case .paragraphCaption:
