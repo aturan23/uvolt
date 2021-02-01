@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F03A09625C7A051004E64B9 /* PreloadModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */; };
+		0011EF50AC0FB258CB3105A9 /* PreloadViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1534DF41B1943263394CEA68 /* PreloadViewProtocols.swift */; };
+		0265422410CB110CA74D4D08 /* ConnectModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBC67A1D7D8A4001274C90C /* ConnectModuleInput.swift */; };
+		0C6BD52DFD68761D476A0591 /* ConnectViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557EB2C602D5853F6E906C4 /* ConnectViewProtocols.swift */; };
+		1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */; };
+		30A93AF0349FB1DF59122BB1 /* ConnectModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */; };
+		35053AF4FF0290F3787CCCC5 /* ConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */; };
 		4F03A09C25C7A1A2004E64B9 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F03A09B25C7A1A2004E64B9 /* Swinject.framework */; };
 		4F03A0A025C7A1A6004E64B9 /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F03A09F25C7A1A6004E64B9 /* SwinjectAutoregistration.framework */; };
 		4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0A325C7A1C1004E64B9 /* BaseModuleAssembly.swift */; };
@@ -31,15 +36,29 @@
 		4F03A0EF25C7AFF7004E64B9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0EE25C7AFF7004E64B9 /* Color.swift */; };
 		4F03A0F325C7B143004E64B9 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0F225C7B143004E64B9 /* UILabelExtension.swift */; };
 		4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFA25C7962A0066545B /* AppDelegate.swift */; };
-		4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFE25C7962A0066545B /* PreloadViewController.swift */; };
 		4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F778E0325C7962A0066545B /* uvolt.xcdatamodeld */; };
 		4F778E0725C7962C0066545B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0625C7962C0066545B /* Assets.xcassets */; };
 		4F778E0A25C7962C0066545B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F778E0825C7962C0066545B /* LaunchScreen.storyboard */; };
 		4F778E1325C796610066545B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F778E1225C796610066545B /* SnapKit.framework */; };
+		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
+		9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */; };
+		A856DD8DCE2CE80035F23371 /* ConnectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */; };
+		B678598C6048D9BC9B3290EB /* PreloadRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD694CFDD5428D9E35475D9 /* PreloadRouter.swift */; };
+		BBBF8DAA35E4BD84D82A9642 /* PreloadAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */; };
+		C21C75115D6EDFBE7F7DC86B /* ConnectAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B65D6899334F2BED97483B /* ConnectAssembly.swift */; };
+		C264B4E0D9CEDED8082BE17E /* ConnectViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B6199337BBD9B5F1B32528 /* ConnectViewAdapter.swift */; };
+		D01A31F1C4ACA49E5A61C550 /* PreloadRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66E53869EFA32ACCFED001F /* PreloadRouterInput.swift */; };
+		E740AB17EC41F88A13073A58 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83520514EB5B2406E2F721E2 /* ConnectViewController.swift */; };
+		EBC715CA30A17EC7F8D2E1E2 /* PreloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F400DEE402B5DD6BFA9CA18 /* PreloadViewController.swift */; };
+		F4F2DAF2B157F9BE1A90EF90 /* ConnectRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342D4A6BD105550485A514C /* ConnectRouterInput.swift */; };
+		F5CC74DD38DD0C518CE0F518 /* PreloadModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F454AE3386F4D768B53FBCF /* PreloadModuleOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreloadModuleAssembly.swift; path = ../../../../../PreloadModuleAssembly.swift; sourceTree = "<group>"; };
+		03B65D6899334F2BED97483B /* ConnectAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectAssembly.swift; sourceTree = "<group>"; };
+		0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectViewModel.swift; sourceTree = "<group>"; };
+		1534DF41B1943263394CEA68 /* PreloadViewProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadViewProtocols.swift; sourceTree = "<group>"; };
+		4557EB2C602D5853F6E906C4 /* ConnectViewProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectViewProtocols.swift; sourceTree = "<group>"; };
 		4F03A09B25C7A1A2004E64B9 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		4F03A09F25C7A1A6004E64B9 /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
 		4F03A0A325C7A1C1004E64B9 /* BaseModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModuleAssembly.swift; sourceTree = "<group>"; };
@@ -64,12 +83,25 @@
 		4F03A0F225C7B143004E64B9 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4F778DF725C7962A0066545B /* uvolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uvolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F778DFA25C7962A0066545B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F778DFE25C7962A0066545B /* PreloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadViewController.swift; sourceTree = "<group>"; };
 		4F778E0425C7962A0066545B /* uvolt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = uvolt.xcdatamodel; sourceTree = "<group>"; };
 		4F778E0625C7962C0066545B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F778E0925C7962C0066545B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F778E0B25C7962C0066545B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F778E1225C796610066545B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
+		59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadAssembly.swift; sourceTree = "<group>"; };
+		63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadModuleInput.swift; sourceTree = "<group>"; };
+		6CBC67A1D7D8A4001274C90C /* ConnectModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleInput.swift; sourceTree = "<group>"; };
+		6F454AE3386F4D768B53FBCF /* PreloadModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadModuleOutput.swift; sourceTree = "<group>"; };
+		7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadViewAdapter.swift; sourceTree = "<group>"; };
+		8342D4A6BD105550485A514C /* ConnectRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectRouterInput.swift; sourceTree = "<group>"; };
+		83520514EB5B2406E2F721E2 /* ConnectViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		8F400DEE402B5DD6BFA9CA18 /* PreloadViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadViewController.swift; sourceTree = "<group>"; };
+		90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectRouter.swift; sourceTree = "<group>"; };
+		ACD694CFDD5428D9E35475D9 /* PreloadRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadRouter.swift; sourceTree = "<group>"; };
+		B8B6199337BBD9B5F1B32528 /* ConnectViewAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectViewAdapter.swift; sourceTree = "<group>"; };
+		D66E53869EFA32ACCFED001F /* PreloadRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadRouterInput.swift; sourceTree = "<group>"; };
+		F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +118,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		119F79A9F1BEF2FABCE76C84 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */,
+				6F454AE3386F4D768B53FBCF /* PreloadModuleOutput.swift */,
+				F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1CEB00E54FFBCA5806B798D5 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8342D4A6BD105550485A514C /* ConnectRouterInput.swift */,
+				90E4C3DCD7FF9A1E0BE026F2 /* ConnectRouter.swift */,
+			);
+			name = Router;
+			path = Router;
+			sourceTree = "<group>";
+		};
+		29BB4319DB9AA7796E488D06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4557EB2C602D5853F6E906C4 /* ConnectViewProtocols.swift */,
+				83520514EB5B2406E2F721E2 /* ConnectViewController.swift */,
+				B8B6199337BBD9B5F1B32528 /* ConnectViewAdapter.swift */,
+			);
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		4510F4A8F3467C8F6A7B1766 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1534DF41B1943263394CEA68 /* PreloadViewProtocols.swift */,
+				8F400DEE402B5DD6BFA9CA18 /* PreloadViewController.swift */,
+				7BFEBCF6771A37DC362188E2 /* PreloadViewAdapter.swift */,
+			);
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EF51561409121E31AADC84E /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				59E1B51A71D780A9900D5716 /* PreloadAssembly.swift */,
+			);
+			name = Assembly;
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		4F03A08E25C79F95004E64B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,50 +181,10 @@
 		4F03A08F25C79F99004E64B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4F03A09025C79F9E004E64B9 /* Preload */,
+				5EEB71A67BDF9667B43FF6D8 /* Preload */,
+				F0942CA66F036B65C46E149F /* Connect */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		4F03A09025C79F9E004E64B9 /* Preload */ = {
-			isa = PBXGroup;
-			children = (
-				4F03A09425C79FAC004E64B9 /* Router */,
-				4F03A09325C79FAA004E64B9 /* View */,
-				4F03A09225C79FA6004E64B9 /* ViewModel */,
-				4F03A09125C79FA2004E64B9 /* Assembly */,
-			);
-			path = Preload;
-			sourceTree = "<group>";
-		};
-		4F03A09125C79FA2004E64B9 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				4F03A09525C7A051004E64B9 /* PreloadModuleAssembly.swift */,
-			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		4F03A09225C79FA6004E64B9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		4F03A09325C79FAA004E64B9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4F778DFE25C7962A0066545B /* PreloadViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4F03A09425C79FAC004E64B9 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		4F03A09925C7A178004E64B9 /* Source */ = {
@@ -283,6 +327,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5EEB71A67BDF9667B43FF6D8 /* Preload */ = {
+			isa = PBXGroup;
+			children = (
+				4510F4A8F3467C8F6A7B1766 /* View */,
+				119F79A9F1BEF2FABCE76C84 /* ViewModel */,
+				CC63FDAE54AE4CFE0FE356CD /* Router */,
+				4EF51561409121E31AADC84E /* Assembly */,
+			);
+			name = Preload;
+			path = Preload;
+			sourceTree = "<group>";
+		};
+		A12D43F12C2CE446B1A613D0 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				03B65D6899334F2BED97483B /* ConnectAssembly.swift */,
+			);
+			name = Assembly;
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CC63FDAE54AE4CFE0FE356CD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D66E53869EFA32ACCFED001F /* PreloadRouterInput.swift */,
+				ACD694CFDD5428D9E35475D9 /* PreloadRouter.swift */,
+			);
+			name = Router;
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CEA67555E96A10429E75463E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6CBC67A1D7D8A4001274C90C /* ConnectModuleInput.swift */,
+				55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */,
+				0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F0942CA66F036B65C46E149F /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				29BB4319DB9AA7796E488D06 /* View */,
+				CEA67555E96A10429E75463E /* ViewModel */,
+				1CEB00E54FFBCA5806B798D5 /* Router */,
+				A12D43F12C2CE446B1A613D0 /* Assembly */,
+			);
+			name = Connect;
+			path = Connect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,7 +487,6 @@
 				4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */,
 				4F03A0C525C7A51F004E64B9 /* Notifications.swift in Sources */,
 				4F03A0C825C7A5DC004E64B9 /* Localizer.swift in Sources */,
-				4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */,
 				4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */,
 				4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */,
 				4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */,
@@ -397,9 +494,26 @@
 				4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */,
 				4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */,
 				4F03A0E725C7AEF3004E64B9 /* TextStyle.swift in Sources */,
-				4F03A09625C7A051004E64B9 /* PreloadModuleAssembly.swift in Sources */,
 				4F03A0F325C7B143004E64B9 /* UILabelExtension.swift in Sources */,
 				4F03A0D225C7A88E004E64B9 /* ContainerExtension.swift in Sources */,
+				0011EF50AC0FB258CB3105A9 /* PreloadViewProtocols.swift in Sources */,
+				EBC715CA30A17EC7F8D2E1E2 /* PreloadViewController.swift in Sources */,
+				9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */,
+				1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */,
+				F5CC74DD38DD0C518CE0F518 /* PreloadModuleOutput.swift in Sources */,
+				984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */,
+				D01A31F1C4ACA49E5A61C550 /* PreloadRouterInput.swift in Sources */,
+				B678598C6048D9BC9B3290EB /* PreloadRouter.swift in Sources */,
+				BBBF8DAA35E4BD84D82A9642 /* PreloadAssembly.swift in Sources */,
+				0C6BD52DFD68761D476A0591 /* ConnectViewProtocols.swift in Sources */,
+				E740AB17EC41F88A13073A58 /* ConnectViewController.swift in Sources */,
+				C264B4E0D9CEDED8082BE17E /* ConnectViewAdapter.swift in Sources */,
+				0265422410CB110CA74D4D08 /* ConnectModuleInput.swift in Sources */,
+				30A93AF0349FB1DF59122BB1 /* ConnectModuleOutput.swift in Sources */,
+				35053AF4FF0290F3787CCCC5 /* ConnectViewModel.swift in Sources */,
+				F4F2DAF2B157F9BE1A90EF90 /* ConnectRouterInput.swift in Sources */,
+				A856DD8DCE2CE80035F23371 /* ConnectRouter.swift in Sources */,
+				C21C75115D6EDFBE7F7DC86B /* ConnectAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
