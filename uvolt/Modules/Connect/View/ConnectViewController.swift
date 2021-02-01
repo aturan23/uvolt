@@ -33,12 +33,10 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
         tableView.separatorColor = .white
         tableView.estimatedRowHeight = Constants.tableViewEstimatedRowHeight
         let emptyView = UIView(frame: CGRect.zero)
-        emptyView.frame.size.height = CGFloat.leastNormalMagnitude
         tableView.tableHeaderView = emptyView
         tableView.tableFooterView = emptyView
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .clear
-        tableView.estimatedSectionFooterHeight = CGFloat.leastNormalMagnitude
         tableView.register(ConnectTableViewCell.self)
         tableView.delegate = self
         tableView.dataSource = self
