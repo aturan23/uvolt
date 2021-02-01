@@ -1,20 +1,20 @@
 //
-//  PreloadViewController.swift
-//  uvolt
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
 //
-//  Created by Turan Assylkhan on 01/02/2021.
-//  Copyright © 2021 Assylkhan Turan. All rights reserved.
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
 import UIKit
 
-class PreloadViewController: BaseViewController, PreloadViewInput {
+class {{ module_info.name }}ViewController: BaseViewController, {{module_info.name}}ViewInput {
 
     // ------------------------------
     // MARK: - Properties
     // ------------------------------
 
-    var output: PreloadViewOutput?
+    var output: {{ module_info.name }}ViewOutput?
 
     // ------------------------------
     // MARK: - UI components
@@ -28,24 +28,30 @@ class PreloadViewController: BaseViewController, PreloadViewInput {
         super.viewDidLoad()
         setupViews()
         output?.didLoad()
-        view.backgroundColor = .green
     }
 
     // ------------------------------
-    // MARK: - PreloadViewInput
+    // MARK: - {{module_info.name}}ViewInput
     // ------------------------------
 
-    func display(viewAdapter: PreloadViewAdapter) { }
+    func display(viewAdapter: {{ module_info.name }}ViewAdapter) { }
 
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
 
     private func setupViews() {
+
+
         setupViewsHierarchy()
         setupConstraints()
     }
 
-    private func setupViewsHierarchy() { }
-    private func setupConstraints() { }
+    private func setupViewsHierarchy() {
+
+    }
+
+    private func setupConstraints() {
+        
+    }
 }

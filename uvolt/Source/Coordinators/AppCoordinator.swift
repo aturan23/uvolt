@@ -31,10 +31,23 @@ class AppCoordinator: AppCoordinating {
         guard
             let registrationViewController = injection
                 .inject(PreloadModuleAssembly.self)?
-                .assemble ()
+                .assemble()
             else {
                 return
         }
         navigationController.setViewControllers([registrationViewController], animated: false)
+        
+        let transition: () -> Void = { self.window.rootViewController = self.navigationController }
+        if let previousViewController = window.rootViewController {
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: .transitionFlipFromLeft,
+                              animations: transition)
+            previousViewController.dismiss(animated: false) {
+                previousViewController.view.removeFromSuperview()
+            }
+        } else {
+            transition()
+        }
     }
 }

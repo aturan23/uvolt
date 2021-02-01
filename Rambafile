@@ -1,0 +1,24 @@
+### Headers settings
+company: Assylkhan Turan
+
+### Xcode project settings
+project_name: uvolt
+xcodeproj_path: uvolt.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: uvolt
+
+# The file path for new modules
+project_file_path: uvolt/Modules
+
+# The Xcode group path to new modules
+project_group_path: uvolt/Modules
+
+### Dependencies settings section
+# podfile_path: Podfile
+cartfile_path: Cartfile
+
+### Templates
+templates:
+- {name: uvolt_swift_mvvm}

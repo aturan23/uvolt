@@ -40,6 +40,9 @@ extension Container {
         self.register(PreloadModuleAssembly.self) { _ in
             PreloadModuleAssembly(injection: self)
         }
+        self.register(ConnectModuleAssembly.self) { _ in
+            ConnectModuleAssembly(injection: self)
+        }
         return self
     }
     
