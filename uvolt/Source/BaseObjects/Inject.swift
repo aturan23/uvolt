@@ -25,6 +25,7 @@ enum Inject {
 extension Container {
     
     func registerStorages() -> Self {
+        register(FileManager.self) { _ in FileManager.default }
         return self
     }
     
