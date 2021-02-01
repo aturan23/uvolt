@@ -14,6 +14,10 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - Properties
     // ------------------------------
 
+    private enum Constants {
+        static let statisticsImageName = "statistics"
+        static let selectModeImageName = "select_mode"
+    }
     var output: MainViewOutput?
 
     // ------------------------------
@@ -21,6 +25,20 @@ class MainViewController: BaseViewController, MainViewInput {
     // ------------------------------
 
     private let segmentView = PeriodSegmentControlView()
+    private let statisticsButton = Button(
+        icon: UIImage(named: Constants.statisticsImageName),
+        text: "MORE_STATS".localized(),
+        textStyle: .headingH5,
+        textColor: .white,
+        backgroundColor: Color.grayBackground,
+        cornerRadius: 9)
+    private let selectModeButton = Button(
+        icon: UIImage(named: Constants.selectModeImageName),
+        text: "SELECT_MODE".localized(),
+        textStyle: .headingH5,
+        textColor: .white,
+        backgroundColor: Color.grayBackground,
+        cornerRadius: 9)
     
     // ------------------------------
     // MARK: - Life cycle
@@ -50,13 +68,25 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupViewsHierarchy() {
-        [segmentView].forEach(view.addSubview(_:))
+        [segmentView, statisticsButton, selectModeButton].forEach(view.addSubview(_:))
     }
 
     private func setupConstraints() {
         segmentView.snp.makeConstraints {
             $0.top.equalTo(safeAreaTopInset)
             $0.left.right.equalToSuperview().inset(20)
+        }
+        statisticsButton.snp.makeConstraints {
+            $0.left.equalTo(14)
+            $0.height.equalTo(60)
+            $0.bottom.equalTo(-safeAreaBottomInset)
+            $0.width.equalToSuperview().multipliedBy(0.455)
+        }
+        selectModeButton.snp.makeConstraints {
+            $0.height.equalTo(60)
+            $0.bottom.equalTo(-safeAreaBottomInset)
+            $0.right.equalTo(-14)
+            $0.width.equalToSuperview().multipliedBy(0.455)
         }
     }
 }
