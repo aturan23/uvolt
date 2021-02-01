@@ -25,6 +25,11 @@
 		4F03A0D625C7A8C8004E64B9 /* RootUIControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0D525C7A8C8004E64B9 /* RootUIControllerType.swift */; };
 		4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0DA25C7AA35004E64B9 /* AppCoordinating.swift */; };
 		4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */; };
+		4F03A0E325C7AEA2004E64B9 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0E225C7AEA2004E64B9 /* LabelFactory.swift */; };
+		4F03A0E725C7AEF3004E64B9 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0E625C7AEF3004E64B9 /* TextStyle.swift */; };
+		4F03A0EB25C7AF64004E64B9 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0EA25C7AF64004E64B9 /* UIFontExtension.swift */; };
+		4F03A0EF25C7AFF7004E64B9 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0EE25C7AFF7004E64B9 /* Color.swift */; };
+		4F03A0F325C7B143004E64B9 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03A0F225C7B143004E64B9 /* UILabelExtension.swift */; };
 		4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFA25C7962A0066545B /* AppDelegate.swift */; };
 		4F778DFF25C7962A0066545B /* PreloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F778DFE25C7962A0066545B /* PreloadViewController.swift */; };
 		4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F778E0325C7962A0066545B /* uvolt.xcdatamodeld */; };
@@ -52,6 +57,11 @@
 		4F03A0D525C7A8C8004E64B9 /* RootUIControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIControllerType.swift; sourceTree = "<group>"; };
 		4F03A0DA25C7AA35004E64B9 /* AppCoordinating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinating.swift; sourceTree = "<group>"; };
 		4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4F03A0E225C7AEA2004E64B9 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		4F03A0E625C7AEF3004E64B9 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		4F03A0EA25C7AF64004E64B9 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		4F03A0EE25C7AFF7004E64B9 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4F03A0F225C7B143004E64B9 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		4F778DF725C7962A0066545B /* uvolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uvolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F778DFA25C7962A0066545B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F778DFE25C7962A0066545B /* PreloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +196,10 @@
 		4F03A0CB25C7A7A6004E64B9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4F03A0E925C7AF5A004E64B9 /* Extensions */,
+				4F03A0E125C7AE3E004E64B9 /* Label */,
 				4F03A0CC25C7A7D8004E64B9 /* BaseViewController.swift */,
+				4F03A0EE25C7AFF7004E64B9 /* Color.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -206,6 +219,24 @@
 				4F03A0DE25C7AA6A004E64B9 /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4F03A0E125C7AE3E004E64B9 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0E225C7AEA2004E64B9 /* LabelFactory.swift */,
+				4F03A0E625C7AEF3004E64B9 /* TextStyle.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		4F03A0E925C7AF5A004E64B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F03A0EA25C7AF64004E64B9 /* UIFontExtension.swift */,
+				4F03A0F225C7B143004E64B9 /* UILabelExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4F778DEE25C7962A0066545B = {
@@ -349,9 +380,12 @@
 			files = (
 				4F03A0D625C7A8C8004E64B9 /* RootUIControllerType.swift in Sources */,
 				4F03A0CD25C7A7D8004E64B9 /* BaseViewController.swift in Sources */,
+				4F03A0EF25C7AFF7004E64B9 /* Color.swift in Sources */,
 				4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */,
+				4F03A0E325C7AEA2004E64B9 /* LabelFactory.swift in Sources */,
 				4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */,
 				4F03A0AB25C7A393004E64B9 /* SupportedLanguage.swift in Sources */,
+				4F03A0EB25C7AF64004E64B9 /* UIFontExtension.swift in Sources */,
 				4F778E0525C7962A0066545B /* uvolt.xcdatamodeld in Sources */,
 				4F03A0C525C7A51F004E64B9 /* Notifications.swift in Sources */,
 				4F03A0C825C7A5DC004E64B9 /* Localizer.swift in Sources */,
@@ -362,7 +396,9 @@
 				4F778DFB25C7962A0066545B /* AppDelegate.swift in Sources */,
 				4F03A0A425C7A1C1004E64B9 /* BaseModuleAssembly.swift in Sources */,
 				4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */,
+				4F03A0E725C7AEF3004E64B9 /* TextStyle.swift in Sources */,
 				4F03A09625C7A051004E64B9 /* PreloadModuleAssembly.swift in Sources */,
+				4F03A0F325C7B143004E64B9 /* UILabelExtension.swift in Sources */,
 				4F03A0D225C7A88E004E64B9 /* ContainerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
