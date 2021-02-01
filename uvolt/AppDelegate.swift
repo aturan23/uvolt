@@ -8,6 +8,7 @@
 
 import UIKit
 import Swinject
+import SnapKit
 import CoreData
 
 @UIApplicationMain
