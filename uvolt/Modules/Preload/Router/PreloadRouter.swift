@@ -14,6 +14,10 @@ class PreloadRouter: PreloadRouterInput {
         self.connectModuleAssembly = connectModuleAssembly
     }
     
+    // ------------------------------
+    // MARK: - PreloadRouterInput methods
+    // ------------------------------
+    
     func routeToConnect() {
         guard let controller = connectModuleAssembly?.assemble() else { return }
         viewController?.navigationController?.pushViewController(controller, animated: true)
