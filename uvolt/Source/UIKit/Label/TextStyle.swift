@@ -16,6 +16,9 @@ public enum TextStyle {
     /// Heading / H2 - 24 Semibold
     case headingH2
     
+    /// Heading / H4 - 19 Bold
+    case headingH4
+    
     /// Heading / H5 - 17 Semibold
     case headingH5
     
@@ -38,7 +41,7 @@ public enum TextStyle {
         switch self {
         case .headingH2:
             return 3.25
-        case .headingH5:
+        case .headingH5, .headingH4:
             return 2.2
         case .paragraphBody, .paragraphSecondary, .paragraphCaption:
             return 4
@@ -49,7 +52,7 @@ public enum TextStyle {
     
     var kern: CGFloat {
         switch self {
-        case .headingH1, .headingH2, .headingH5:
+        case .headingH1, .headingH2, .headingH5, .headingH4:
             return 0.2
         case .paragraphBody, .smallHelper:
             return 0.3
@@ -68,6 +71,8 @@ public enum TextStyle {
             return .semibold(size: 32)
         case .headingH2:
             return .semibold(size: 24)
+        case .headingH4:
+            return .bold(size: 19)
         case .headingH5:
             return .semibold(size: 17)
         case .paragraphBody:
