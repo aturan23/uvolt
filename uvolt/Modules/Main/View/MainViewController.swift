@@ -24,9 +24,44 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - UI components
     // ------------------------------
 
+    private lazy var navigationBar: UINavigationBar = {
+        let bar = UINavigationBar()
+        let navigationItem = UINavigationItem()
+        navigationItem.title = "INFORMATION_CENTRE".localized().capitalized
+        
+        let gearItem = UIBarButtonItem(
+            image: UIImage(named: "gear"),
+            style: .plain,
+            target: self,
+            action: #selector(settingsDidTap))
+        navigationItem.rightBarButtonItem = gearItem
+        bar.setItems([navigationItem], animated: false)
+        bar.tintColor = .blue
+        bar.setBackgroundImage(UIImage(), for: .default)
+        bar.shadowImage = UIImage()
+        return bar
+    }()
     private let frameRoundedView = InformationRoundedView()
     private let chargeRoundedView = InformationRoundedView()
     private let segmentView = PeriodSegmentControlView()
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 4
+        layout.minimumLineSpacing = 4
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+//        layout.estimatedItemSize = CGSize(width: Constants.carouselItemSize,
+//                                          height: Constants.carouselItemSize)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        collectionView.register(ParametersCollectionViewCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        collectionView.clipsToBounds = false
+        return collectionView
+    }()
     private let statisticsButton = Button(
         icon: UIImage(named: Constants.statisticsImageName),
         text: "MORE_STATS".localized(),
@@ -61,6 +96,10 @@ class MainViewController: BaseViewController, MainViewInput {
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
+    
+    @objc private func settingsDidTap() {
+        
+    }
 
     private func setupViews() {
         view.backgroundColor = .black
@@ -70,7 +109,8 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupViewsHierarchy() {
-        [frameRoundedView,
+        [navigationBar,
+         frameRoundedView,
          chargeRoundedView,
          segmentView,
          statisticsButton,
@@ -78,8 +118,12 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupConstraints() {
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.left.right.equalToSuperview()
+        }
         frameRoundedView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaTopInset)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.left.equalTo(16)
             $0.width.equalToSuperview().multipliedBy(0.455)
         }
@@ -104,5 +148,21 @@ class MainViewController: BaseViewController, MainViewInput {
             $0.right.equalTo(-14)
             $0.width.equalToSuperview().multipliedBy(0.455)
         }
+    }
+}
+
+// ------------------------------
+// MARK: - UICollectionViewDelegate & UICollectionViewDataSource methods
+// ------------------------------
+
+extension MainViewController: UICollectionViewDelegate & UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: ParametersCollectionViewCell = collectionView.dequeReusableCell(for: indexPath)
+        return cell
     }
 }
