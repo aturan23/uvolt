@@ -191,6 +191,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ParametersCollectionViewCell = collectionView.dequeReusableCell(for: indexPath)
+        let type = otherTypes[indexPath.row]
+        cell.display(type: type)
         return cell
     }
     

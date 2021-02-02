@@ -45,6 +45,9 @@ class ParametersCollectionViewCell: UICollectionViewCell {
     // MARK: - Public methods
     // ------------------------------
     
+    func display(type: InformationType) {
+        containerView.display(type: type)
+    }
     
     // ------------------------------
     // MARK: - Private

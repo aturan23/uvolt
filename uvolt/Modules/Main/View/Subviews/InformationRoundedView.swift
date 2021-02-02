@@ -43,7 +43,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .charge(let num):
             let frameLabel = labelFactory.make(
@@ -53,7 +53,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .avgSpeed(let num):
             let frameLabel = labelFactory.make(
@@ -63,7 +63,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .calories(let num):
             let frameLabel = labelFactory.make(
@@ -73,7 +73,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .distance(let num):
             let frameLabel = labelFactory.make(
@@ -83,7 +83,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .odo(let num):
             let frameLabel = labelFactory.make(
@@ -93,7 +93,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .avgPower(let num):
             let frameLabel = labelFactory.make(
@@ -103,7 +103,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         case .fuel(let num):
             let frameLabel = labelFactory.make(
@@ -113,7 +113,7 @@ class InformationRoundedView: UIView {
                 textAlignment: .center)
             addSubview(frameLabel)
             frameLabel.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
+                $0.center.equalToSuperview()
             }
         }
     }
