@@ -38,4 +38,22 @@ enum InformationType {
             return "FUEL".localized()
         }
     }
+    
+    var imageName: String? {
+        switch self {
+        case .avgSpeed:
+            return "speed"
+        case .calories:
+            return "heart"
+        case .distance:
+            return "marker"
+        case .odo:
+            return "distance"
+        case .avgPower:
+            return "fuel"
+        case .fuel:
+            return "fuel"
+        default: return nil
+        }
+    }
 }

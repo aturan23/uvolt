@@ -16,6 +16,7 @@ class InformationRoundedView: UIView {
     
     private enum Constants {
         static let radius: CGFloat = 14
+        static let imageFrame: CGRect = .init(x: 0, y: 0, width: 44, height: 44)
     }
     private let labelFactory = LabelFactory()
     
@@ -56,64 +57,46 @@ class InformationRoundedView: UIView {
                 $0.center.equalToSuperview()
             }
         case .avgSpeed(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .calories(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .distance(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .odo(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .avgPower(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .fuel(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let view = buildImagedLabel(image: type.imageName, value: num)
+            addSubview(view)
+            view.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         }
     }
@@ -148,5 +131,26 @@ class InformationRoundedView: UIView {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(16)
         }
+    }
+    
+    private func buildImagedLabel(image: String?, value: Float) -> UIView {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        
+        let imageView = UIImageView(image: UIImage(named: image ?? ""))
+        imageView.frame = Constants.imageFrame
+        
+        let label = labelFactory.make(
+            withStyle: .headingH5,
+            text: "\(value)",
+            textColor: .white)
+        
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(label)
+        
+        return stackView
     }
 }
