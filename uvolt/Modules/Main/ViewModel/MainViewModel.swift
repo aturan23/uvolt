@@ -21,7 +21,7 @@ class MainViewModel: MainViewOutput {
     // ------------------------------
 
     func didLoad() {
-        view?.display(viewAdapter: MainViewAdapter())
+        fetchInformation()
     }
     
     func showSettingsPage() {
@@ -32,6 +32,18 @@ class MainViewModel: MainViewOutput {
     // MARK: - Private methods
     // ------------------------------
     
+    private func fetchInformation() {
+        let types: [InformationType] = [.avgSpeed(num: 23.2),
+                                        .calories(num: 35),
+                                        .distance(num: 1.0),
+                                        .odo(num: 58.9),
+                                        .avgPower(num: 1),
+                                        .fuel(num: 0.1)]
+        view?.display(viewAdapter: MainViewAdapter(
+                        frame: .frame(num: "10000"),
+                        charge: .charge(num: 10),
+                        otherTypes: types))
+    }
 }
 
 // ------------------------------

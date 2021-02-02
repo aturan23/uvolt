@@ -7,4 +7,8 @@
 //
 
 /// Default ViewModel passed to View layer for displaying
-struct MainViewAdapter { }
+struct MainViewAdapter {
+    var frame: InformationType
+    var charge: InformationType
+    var otherTypes: [InformationType]
+}

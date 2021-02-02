@@ -25,13 +25,98 @@ class InformationRoundedView: UIView {
     
     private lazy var titleLabel = labelFactory.make(
         withStyle: .paragraphBody,
-        text: "dsfadfa",
         textColor: Color.textHighContrast,
         textAlignment: .center)
 
     // ------------------------------
     // MARK: - Life cycle
     // ------------------------------
+    
+    func display(type: InformationType) {
+        titleLabel.text = type.title
+        switch type {
+        case .frame(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: num,
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .charge(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .avgSpeed(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .calories(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .distance(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .odo(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .avgPower(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        case .fuel(let num):
+            let frameLabel = labelFactory.make(
+                withStyle: .headingH5,
+                text: "\(num)",
+                textColor: .white,
+                textAlignment: .center)
+            addSubview(frameLabel)
+            frameLabel.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,7 +147,6 @@ class InformationRoundedView: UIView {
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(16)
-            $0.bottom.equalTo(-16)
         }
     }
 }

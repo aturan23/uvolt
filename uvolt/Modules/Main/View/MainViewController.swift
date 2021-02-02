@@ -17,8 +17,14 @@ class MainViewController: BaseViewController, MainViewInput {
     private enum Constants {
         static let statisticsImageName = "statistics"
         static let selectModeImageName = "select_mode"
+        static let cardHeight: CGFloat = 112
     }
     var output: MainViewOutput?
+    private var otherTypes: [InformationType] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     // ------------------------------
     // MARK: - UI components
@@ -98,7 +104,11 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - MainViewInput
     // ------------------------------
 
-    func display(viewAdapter: MainViewAdapter) { }
+    func display(viewAdapter: MainViewAdapter) {
+        frameRoundedView.display(type: viewAdapter.frame)
+        chargeRoundedView.display(type: viewAdapter.charge)
+        otherTypes = viewAdapter.otherTypes
+    }
 
     // ------------------------------
     // MARK: - Private methods
@@ -136,12 +146,14 @@ class MainViewController: BaseViewController, MainViewInput {
         frameRoundedView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.left.equalTo(16)
-            $0.width.equalToSuperview().multipliedBy(0.455)
+            $0.height.equalTo(Constants.cardHeight)
+            $0.width.equalToSuperview().multipliedBy(0.454)
         }
         chargeRoundedView.snp.makeConstraints {
             $0.top.equalTo(safeAreaTopInset)
             $0.right.equalTo(-16)
-            $0.width.equalToSuperview().multipliedBy(0.455)
+            $0.height.equalTo(Constants.cardHeight)
+            $0.width.equalToSuperview().multipliedBy(0.454)
         }
         segmentView.snp.makeConstraints {
             $0.top.equalTo(frameRoundedView.snp.bottom).offset(16)
@@ -174,7 +186,7 @@ class MainViewController: BaseViewController, MainViewInput {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
+        otherTypes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
