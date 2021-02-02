@@ -98,7 +98,7 @@ class ConnectTableViewCell: UITableViewCell {
         buttonView.snp.makeConstraints {
             $0.right.equalTo(-16)
             $0.height.equalTo(Constants.buttonViewHeight)
-            $0.width.equalTo(85)
+            $0.left.greaterThanOrEqualTo(titleLabel).offset(20).priority(999)
             $0.centerY.equalToSuperview()
         }
         buttonLabel.snp.makeConstraints {
