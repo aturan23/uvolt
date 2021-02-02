@@ -21,17 +21,17 @@ class PeriodSegmentControlView: UIView {
         didSet {
             switch selected {
             case .today:
-                todayView.selected = true
-                weekView.selected = false
-                allTimeView.selected = false
+                todayButton.isPressed = true
+                weekButton.isPressed = false
+                allTimeButton.isPressed = false
             case .week:
-                todayView.selected = false
-                weekView.selected = true
-                allTimeView.selected = false
+                todayButton.isPressed = false
+                weekButton.isPressed = true
+                allTimeButton.isPressed = false
             case .allTime:
-                todayView.selected = false
-                weekView.selected = false
-                allTimeView.selected = true
+                todayButton.isPressed = false
+                weekButton.isPressed = false
+                allTimeButton.isPressed = true
             }
         }
     }
@@ -40,9 +40,27 @@ class PeriodSegmentControlView: UIView {
     // MARK: - UI components
     // ------------------------------
     
-    private let todayView = ButtonView(text: "TODAY".localized(up: true))
-    private let weekView = ButtonView(text: "WEEK".localized(up: true))
-    private let allTimeView = ButtonView(text: "ALL_TIME".localized(up: true))
+    private let todayButton = Button(
+        text: "TODAY".localized(up: true),
+        textStyle: .paragraphBody,
+        textColor: .white,
+        backgroundColor: Color.darkSegmentBackground,
+        pressedColor: Color.grayBackground,
+        cornerRadius: 4)
+    private let weekButton = Button(
+        text: "WEEK".localized(up: true),
+        textStyle: .paragraphBody,
+        textColor: .white,
+        backgroundColor: Color.darkSegmentBackground,
+        pressedColor: Color.grayBackground,
+        cornerRadius: 4)
+    private let allTimeButton = Button(
+        text: "ALL_TIME".localized(up: true),
+        textStyle: .paragraphBody,
+        textColor: .white,
+        backgroundColor: Color.darkSegmentBackground,
+        pressedColor: Color.grayBackground,
+        cornerRadius: 4)
 
     // ------------------------------
     // MARK: - Life cycle
@@ -60,93 +78,42 @@ class PeriodSegmentControlView: UIView {
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
+    
+    @objc private func todayDidTap() { selected = .today }
+    @objc private func weekDidTap() { selected = .week }
+    @objc private func allTimeDidTap() { selected = .allTime }
 
     private func setupViews() {
         backgroundColor = .clear
-        todayView.selected = true
+        todayButton.isPressed = true
         
-        todayView.didTap = { [weak self] in self?.selected = .today }
-        weekView.didTap = { [weak self] in self?.selected = .week }
-        allTimeView.didTap = { [weak self] in self?.selected = .allTime }
+        todayButton.addTarget(self, action: #selector(todayDidTap), for: .touchUpInside)
+        weekButton.addTarget(self, action: #selector(weekDidTap), for: .touchUpInside)
+        allTimeButton.addTarget(self, action: #selector(allTimeDidTap), for: .touchUpInside)
         
         setupViewsHierarchy()
         setupConstraints()
     }
 
     private func setupViewsHierarchy() {
-        [todayView, weekView, allTimeView].forEach(addSubview(_:))
+        [todayButton, weekButton, allTimeButton].forEach(addSubview(_:))
     }
     
     private func setupConstraints() {
-        todayView.snp.makeConstraints {
+        todayButton.snp.makeConstraints {
             $0.left.bottom.top.equalToSuperview()
             $0.height.equalTo(Constants.buttonViewHeight)
             $0.width.equalToSuperview().multipliedBy(0.33)
         }
-        weekView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+        weekButton.snp.makeConstraints {
+            $0.centerX.top.equalToSuperview()
             $0.height.equalTo(Constants.buttonViewHeight)
             $0.width.equalToSuperview().multipliedBy(0.33)
         }
-        allTimeView.snp.makeConstraints {
-            $0.right.equalToSuperview()
+        allTimeButton.snp.makeConstraints {
+            $0.right.top.equalToSuperview()
             $0.height.equalTo(Constants.buttonViewHeight)
             $0.width.equalToSuperview().multipliedBy(0.33)
-        }
-    }
-}
-
-private class ButtonView: UIView {
-    
-    // ------------------------------
-    // MARK: - Properties
-    // ------------------------------
-    
-    private let labelFactory = LabelFactory()
-    var didTap: (() -> ())?
-    var selected: Bool = false {
-        didSet {
-            backgroundColor = Color.grayBackground
-        }
-    }
-    
-    // ------------------------------
-    // MARK: - UI components
-    // ------------------------------
-    
-    private lazy var titleLabel = labelFactory.make(
-        withStyle: .paragraphBody,
-        textColor: .white,
-        textAlignment: .center)
-    
-    init(text: String) {
-        super.init(frame: .zero)
-        setupViews()
-        titleLabel.text = text
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc private func viewDidTap() {
-        guard !selected else { return }
-        didTap?()
-    }
-    
-    private func setupViews() {
-        isUserInteractionEnabled = true
-        let recognizer = UIGestureRecognizer(target: self, action: #selector(viewDidTap))
-        addGestureRecognizer(recognizer)
-        
-        layer.cornerRadius = 4
-        backgroundColor = Color.darkSegmentBackground
-        titleLabel.textColor = .white
-        
-        addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
         }
     }
 }
