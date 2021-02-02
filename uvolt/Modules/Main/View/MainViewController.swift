@@ -81,10 +81,20 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - Life cycle
     // ------------------------------
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         output?.didLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     // ------------------------------
