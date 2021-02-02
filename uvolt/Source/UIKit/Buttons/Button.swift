@@ -36,6 +36,20 @@ open class Button: UIButton {
         }
     }
     /**
+     The pressed state of the button
+     */
+    var isPressed: Bool = false {
+        didSet {
+            guard let pressedColor = pressedColor,
+                  let defaultColor = activeStateBackgroundColor else { return }
+            if isPressed {
+                setBackgroundImage(UIImage(pressedColor), for: .normal)
+            } else {
+                setBackgroundImage(UIImage(defaultColor), for: .normal)
+            }
+        }
+    }
+    /**
      Shadow view.
      */
     open var shadowLayerView: UIView?
@@ -69,6 +83,7 @@ open class Button: UIButton {
     
     private var activeStateBackgroundColor: UIColor?
     private var disabledStateBackgroundColor: UIColor?
+    private var pressedColor: UIColor?
     
     
     // MARK: - Initializers
@@ -115,6 +130,7 @@ open class Button: UIButton {
             setBackgroundImage(UIImage(disabledColor), for: .disabled)
         }
         if let pressedColor = pressedColor {
+            self.pressedColor = pressedColor
             setBackgroundImage(UIImage(pressedColor), for: .highlighted)
         }
         self.contentEdgeInsets = contentEdgeInsets
