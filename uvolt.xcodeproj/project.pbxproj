@@ -53,6 +53,7 @@
 		4F892EC525C830FD00BA4F12 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EC425C830FD00BA4F12 /* UIImageExtension.swift */; };
 		4F892EC925C8312200BA4F12 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EC825C8312200BA4F12 /* CALayerExtension.swift */; };
 		4F892ECC25C8314800BA4F12 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */; };
+		4F892ED025C83AC700BA4F12 /* InformationRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		8A18002DEADF174E71129E1D /* MainModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB174DDB7071BA09660AFB /* MainModuleInput.swift */; };
 		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
@@ -122,6 +123,7 @@
 		4F892EC425C830FD00BA4F12 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4F892EC825C8312200BA4F12 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRoundedView.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */,
+				4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				4F892EC125C8304D00BA4F12 /* UIActivityIndicatorViewExtension.swift in Sources */,
 				C264B4E0D9CEDED8082BE17E /* ConnectViewAdapter.swift in Sources */,
 				4F892EAA25C7EC0700BA4F12 /* ReusableView.swift in Sources */,
+				4F892ED025C83AC700BA4F12 /* InformationRoundedView.swift in Sources */,
 				0265422410CB110CA74D4D08 /* ConnectModuleInput.swift in Sources */,
 				30A93AF0349FB1DF59122BB1 /* ConnectModuleOutput.swift in Sources */,
 				35053AF4FF0290F3787CCCC5 /* ConnectViewModel.swift in Sources */,

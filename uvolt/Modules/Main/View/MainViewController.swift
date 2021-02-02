@@ -24,6 +24,8 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - UI components
     // ------------------------------
 
+    private let frameRoundedView = InformationRoundedView()
+    private let chargeRoundedView = InformationRoundedView()
     private let segmentView = PeriodSegmentControlView()
     private let statisticsButton = Button(
         icon: UIImage(named: Constants.statisticsImageName),
@@ -68,12 +70,26 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupViewsHierarchy() {
-        [segmentView, statisticsButton, selectModeButton].forEach(view.addSubview(_:))
+        [frameRoundedView,
+         chargeRoundedView,
+         segmentView,
+         statisticsButton,
+         selectModeButton].forEach(view.addSubview(_:))
     }
 
     private func setupConstraints() {
-        segmentView.snp.makeConstraints {
+        frameRoundedView.snp.makeConstraints {
             $0.top.equalTo(safeAreaTopInset)
+            $0.left.equalTo(16)
+            $0.width.equalToSuperview().multipliedBy(0.455)
+        }
+        chargeRoundedView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaTopInset)
+            $0.right.equalTo(-16)
+            $0.width.equalToSuperview().multipliedBy(0.455)
+        }
+        segmentView.snp.makeConstraints {
+            $0.top.equalTo(frameRoundedView.snp.bottom).offset(16)
             $0.left.right.equalToSuperview().inset(20)
         }
         statisticsButton.snp.makeConstraints {
