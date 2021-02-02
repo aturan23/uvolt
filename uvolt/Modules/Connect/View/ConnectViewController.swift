@@ -52,6 +52,11 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
         setupViews()
         output?.didLoad()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
+    }
 
     // ------------------------------
     // MARK: - ConnectViewInput

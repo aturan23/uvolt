@@ -96,12 +96,12 @@ class PreloadViewController: BaseViewController, PreloadViewInput {
     }
     
     private func animateProgress(completion: @escaping () -> ()) {
-        UIView.animate(withDuration: 5) { [weak self] in
+        UIView.animate(withDuration: 5, animations: { [weak self] in
             self?.progressView.setProgress(1, animated: true)
-        } completion: { _ in
+        }, completion: { (_) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 completion()
             }
-        }
+        })
     }
 }

@@ -248,7 +248,6 @@
 				9C0F80FD3C8023B706914948 /* SpeedViewController.swift */,
 				E6471636DB8BF330BF57B83A /* SpeedViewAdapter.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -270,7 +269,6 @@
 				D0ACF695E0FA36F8C1347285 /* SpeedModuleOutput.swift */,
 				0F0BB4282214D4D257D16048 /* SpeedViewModel.swift */,
 			);
-			name = ViewModel;
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
@@ -569,7 +567,6 @@
 				06B044DBD77B71AFA2125EC5 /* SpeedRouterInput.swift */,
 				5F2127EBD815E2A98DCE6FA5 /* SpeedRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -578,7 +575,6 @@
 			children = (
 				0935F179B29825F666862AB3 /* SpeedAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -673,7 +669,6 @@
 				7B9C4DE8B6EB48C3D36486B8 /* Router */,
 				8B2827597B3FE182486882BD /* Assembly */,
 			);
-			name = Speed;
 			path = Speed;
 			sourceTree = "<group>";
 		};
