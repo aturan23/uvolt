@@ -54,6 +54,7 @@
 		4F892EC925C8312200BA4F12 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EC825C8312200BA4F12 /* CALayerExtension.swift */; };
 		4F892ECC25C8314800BA4F12 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */; };
 		4F892ED025C83AC700BA4F12 /* InformationRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */; };
+		4F892ED525C8E41F00BA4F12 /* ParametersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		8A18002DEADF174E71129E1D /* MainModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB174DDB7071BA09660AFB /* MainModuleInput.swift */; };
 		984F9740FBF380119312C451 /* PreloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */; };
@@ -124,6 +125,7 @@
 		4F892EC825C8312200BA4F12 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRoundedView.swift; sourceTree = "<group>"; };
+		4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersCollectionViewCell.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 			children = (
 				4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */,
 				4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */,
+				4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				4F892EC525C830FD00BA4F12 /* UIImageExtension.swift in Sources */,
 				0011EF50AC0FB258CB3105A9 /* PreloadViewProtocols.swift in Sources */,
 				EBC715CA30A17EC7F8D2E1E2 /* PreloadViewController.swift in Sources */,
+				4F892ED525C8E41F00BA4F12 /* ParametersCollectionViewCell.swift in Sources */,
 				9CBA181FB904CC48F2CCEC9B /* PreloadViewAdapter.swift in Sources */,
 				1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */,
 				F5CC74DD38DD0C518CE0F518 /* PreloadModuleOutput.swift in Sources */,
