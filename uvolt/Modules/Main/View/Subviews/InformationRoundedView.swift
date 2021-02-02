@@ -49,6 +49,7 @@ class InformationRoundedView: UIView {
             }
         case .charge(let num):
             let batteryView = BatteryView()
+            batteryView.level = num
             addSubview(batteryView)
             batteryView.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)

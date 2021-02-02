@@ -41,7 +41,7 @@ class MainViewModel: MainViewOutput {
                                         .fuel(num: 0.1)]
         view?.display(viewAdapter: MainViewAdapter(
                         frame: .frame(num: "10000"),
-                        charge: .charge(num: 10),
+                        charge: .charge(num: 50),
                         otherTypes: types))
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class BatteryView: UIView {
    
@@ -18,6 +19,14 @@ class BatteryView: UIView {
         static let mainBorderSize: CGSize = .init(width: 76, height: 40)
         static let smallBorderSize: CGSize = .init(width: 9, height: 25)
     }
+    var level: Int = 0 {
+        didSet {
+            layoutLevel()
+        }
+    }
+    private var levelWidthConstraint: Constraint?
+    private lazy var levelWidth: CGFloat = CGFloat(level)
+    private var fillColor: UIColor = .red
     
     // ------------------------------
     // MARK: - UI components
@@ -45,6 +54,21 @@ class BatteryView: UIView {
         smallBorderView.roundCorners(corners: [.topRight, .bottomRight], radius: 7)
         borderView.layer.cornerRadius = 7
         
+        var pathWidth = 15
+        if (86...100).contains(level) {
+            pathWidth = 0
+        }
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: levelWidth, y: 0))
+        path.addLine(to: CGPoint(x: levelWidth + CGFloat(pathWidth), y: 0))
+        path.addLine(to: CGPoint(x: levelWidth + 0, y: Constants.mainBorderSize.height))
+        path.addLine(to: CGPoint(x: levelWidth + 0, y: 0))
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = fillColor.cgColor
+        shapeLayer.lineWidth = 3
+        levelView.layer.addSublayer(shapeLayer)
     }
     
     // ------------------------------
@@ -59,7 +83,7 @@ class BatteryView: UIView {
             $0.layer.borderColor = Color.mainWhite.cgColor
         }
         
-        levelView.backgroundColor = .red
+        levelView.backgroundColor = fillColor
         
         setupViewsHierarchy()
         setupConstraints()
@@ -83,7 +107,29 @@ class BatteryView: UIView {
         }
         levelView.snp.makeConstraints {
             $0.left.height.equalToSuperview()
-            $0.right.equalToSuperview().multipliedBy(0.5)
+            levelWidthConstraint = $0.width.equalTo(0).constraint
         }
+    }
+    
+    private func layoutLevel() {
+        if level >= 0 && level <= 100 {
+            levelWidth = ( CGFloat(level) * Constants.mainBorderSize.width ) / 100
+            levelWidthConstraint?.update(offset: levelWidth)
+        }
+        layoutFillColor()
+    }
+    
+    private func layoutFillColor() {
+        switch level {
+        case 0...10:
+            fillColor = .red
+        case 11...20:
+            fillColor = .yellow
+        case 21...100:
+            fillColor = .green
+        default:
+            fillColor = .red
+        }
+        levelView.backgroundColor = fillColor
     }
 }
