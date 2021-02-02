@@ -15,7 +15,7 @@ enum InformationType {
     case calories(num: Float)
     case distance(num: Float)
     case odo(num: Float)
-    case avgPower(num: Float)
+    case avgPower(power: Float, wat: Float)
     case fuel(num: Float)
     
     var title: String {
@@ -50,7 +50,7 @@ enum InformationType {
         case .odo:
             return "distance"
         case .avgPower:
-            return "fuel"
+            return "power"
         case .fuel:
             return "fuel"
         default: return nil

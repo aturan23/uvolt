@@ -17,6 +17,7 @@ class InformationRoundedView: UIView {
     private enum Constants {
         static let radius: CGFloat = 14
         static let imageFrame: CGRect = .init(x: 0, y: 0, width: 44, height: 44)
+        static let percentColor = #colorLiteral(red: 0.4823529412, green: 0.5803921569, blue: 0.9450980392, alpha: 1)
     }
     private let labelFactory = LabelFactory()
     
@@ -57,42 +58,42 @@ class InformationRoundedView: UIView {
                 $0.center.equalToSuperview()
             }
         case .avgSpeed(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+            let view = buildImagedLabelView(image: type.imageName, value: num)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
             }
         case .calories(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+            let view = buildImagedLabelView(image: type.imageName, value: num)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
             }
         case .distance(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+            let view = buildImagedLabelView(image: type.imageName, value: num)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
             }
         case .odo(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+            let view = buildImagedLabelView(image: type.imageName, value: num)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
             }
-        case .avgPower(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+        case let .avgPower(power, wat):
+            let view = buildPowerView(image: type.imageName, power: power, wat: wat)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
                 $0.centerX.equalToSuperview()
             }
         case .fuel(let num):
-            let view = buildImagedLabel(image: type.imageName, value: num)
+            let view = buildImagedLabelView(image: type.imageName, value: num)
             addSubview(view)
             view.snp.makeConstraints {
                 $0.top.equalTo(titleLabel.snp.bottom).offset(12)
@@ -133,7 +134,7 @@ class InformationRoundedView: UIView {
         }
     }
     
-    private func buildImagedLabel(image: String?, value: Float) -> UIView {
+    private func buildImagedLabelView(image: String?, value: Float) -> UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -152,5 +153,59 @@ class InformationRoundedView: UIView {
         stackView.addArrangedSubview(label)
         
         return stackView
+    }
+    
+    private func buildPowerView(image: String?, power: Float, wat: Float) -> UIView {
+        let sum = power + wat
+        let powerPercent = ( power * 100 ) / sum
+        let watPercent = ( wat * 100 ) / sum
+        
+        let powerLabel = labelFactory.make(
+            withStyle: .paragraphBody,
+            text: "\(power)",
+            textColor: .white,
+            textAlignment: .right)
+        let powerPercentLabel = labelFactory.make(
+            withStyle: .paragraphBody,
+            text: "\( Int(round(powerPercent)) )%",
+            textColor: Constants.percentColor,
+            textAlignment: .right)
+        
+        let watLabel = labelFactory.make(
+            withStyle: .paragraphBody,
+            text: "\(wat)",
+            textColor: .white)
+        let watPercentLabel = labelFactory.make(
+            withStyle: .paragraphBody,
+            text: "\( Int(round(watPercent)) )%",
+            textColor: Constants.percentColor)
+        
+        let imageView = UIImageView(image: UIImage(named: image ?? ""))
+        imageView.frame = Constants.imageFrame
+        
+        let containerView = UIView()
+        [powerLabel, powerPercentLabel, imageView, watLabel, watPercentLabel].forEach(containerView.addSubview(_:))
+        
+        powerLabel.snp.makeConstraints {
+            $0.left.top.equalToSuperview()
+        }
+        powerPercentLabel.snp.makeConstraints {
+            $0.right.equalTo(powerLabel)
+            $0.bottom.equalTo(imageView)
+        }
+        imageView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.left.equalTo(powerLabel.snp.right).offset(4)
+        }
+        watLabel.snp.makeConstraints {
+            $0.top.right.equalToSuperview()
+            $0.left.equalTo(imageView.snp.right).offset(4)
+        }
+        watPercentLabel.snp.makeConstraints {
+            $0.left.equalTo(watLabel)
+            $0.bottom.equalTo(imageView)
+        }
+        
+        return containerView
     }
 }

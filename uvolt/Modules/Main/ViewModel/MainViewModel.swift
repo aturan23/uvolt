@@ -37,7 +37,7 @@ class MainViewModel: MainViewOutput {
                                         .calories(num: 35),
                                         .distance(num: 1.0),
                                         .odo(num: 58.9),
-                                        .avgPower(num: 1),
+                                        .avgPower(power: 187.9, wat: 93.4),
                                         .fuel(num: 0.1)]
         view?.display(viewAdapter: MainViewAdapter(
                         frame: .frame(num: "10000"),
