@@ -2,11 +2,11 @@
 
 Project contains:
 
-- Cartfile to configure depdendencies.
+- Coacoapods to configure depdendencies.
 
 To apply them run following commands:
 
-- ` ./carthage_build update --no-use-binaries --platform iOS `
+- ` pod install `
 
 ### Macro architecture
 
