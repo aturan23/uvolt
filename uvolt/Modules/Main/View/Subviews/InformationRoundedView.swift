@@ -48,14 +48,11 @@ class InformationRoundedView: UIView {
                 $0.center.equalToSuperview()
             }
         case .charge(let num):
-            let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
-                text: "\(num)",
-                textColor: .white,
-                textAlignment: .center)
-            addSubview(frameLabel)
-            frameLabel.snp.makeConstraints {
-                $0.center.equalToSuperview()
+            let batteryView = BatteryView()
+            addSubview(batteryView)
+            batteryView.snp.makeConstraints {
+                $0.top.equalTo(titleLabel.snp.bottom).offset(12)
+                $0.centerX.equalToSuperview()
             }
         case .avgSpeed(let num):
             let view = buildImagedLabelView(image: type.imageName, value: num)

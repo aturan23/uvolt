@@ -56,6 +56,8 @@
 		4F892ED025C83AC700BA4F12 /* InformationRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */; };
 		4F892ED525C8E41F00BA4F12 /* ParametersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */; };
 		4F892ED925C9233C00BA4F12 /* InformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ED825C9233C00BA4F12 /* InformationType.swift */; };
+		4F892EEC25C9565800BA4F12 /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEB25C9565800BA4F12 /* BatteryView.swift */; };
+		4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */; };
 		51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ED39FD9E897BE0987B5D0 /* SettingsRouterInput.swift */; };
@@ -139,6 +141,8 @@
 		4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationRoundedView.swift; sourceTree = "<group>"; };
 		4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F892ED825C9233C00BA4F12 /* InformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationType.swift; sourceTree = "<group>"; };
+		4F892EEB25C9565800BA4F12 /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
+		4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				4F892EC425C830FD00BA4F12 /* UIImageExtension.swift */,
 				4F892EC825C8312200BA4F12 /* CALayerExtension.swift */,
 				4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */,
+				4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				4F892EAF25C8096D00BA4F12 /* PeriodSegmentControlView.swift */,
 				4F892ECF25C83AC700BA4F12 /* InformationRoundedView.swift */,
 				4F892ED425C8E41F00BA4F12 /* ParametersCollectionViewCell.swift */,
+				4F892EEB25C9565800BA4F12 /* BatteryView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				4F03A0EF25C7AFF7004E64B9 /* Color.swift in Sources */,
 				4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */,
 				4F03A0E325C7AEA2004E64B9 /* LabelFactory.swift in Sources */,
+				4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */,
 				4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */,
 				4F03A0AB25C7A393004E64B9 /* SupportedLanguage.swift in Sources */,
 				4F03A0EB25C7AF64004E64B9 /* UIFontExtension.swift in Sources */,
@@ -735,6 +742,7 @@
 				4F03A0C825C7A5DC004E64B9 /* Localizer.swift in Sources */,
 				4F03A0B725C7A466004E64B9 /* LocalLocalizer.swift in Sources */,
 				4F892ECC25C8314800BA4F12 /* UIButtonExtension.swift in Sources */,
+				4F892EEC25C9565800BA4F12 /* BatteryView.swift in Sources */,
 				4F03A0B425C7A44A004E64B9 /* String+Localization.swift in Sources */,
 				4F03A0A725C7A1DE004E64B9 /* Inject.swift in Sources */,
 				4F892EB025C8096D00BA4F12 /* PeriodSegmentControlView.swift in Sources */,
