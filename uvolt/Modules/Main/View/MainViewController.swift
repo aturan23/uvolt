@@ -46,20 +46,17 @@ class MainViewController: BaseViewController, MainViewInput {
     private let segmentView = PeriodSegmentControlView()
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 4
-        layout.minimumLineSpacing = 4
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 8
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
-//        layout.estimatedItemSize = CGSize(width: Constants.carouselItemSize,
-//                                          height: Constants.carouselItemSize)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.register(ParametersCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-        collectionView.clipsToBounds = false
         return collectionView
     }()
     private let statisticsButton = Button(
@@ -126,6 +123,7 @@ class MainViewController: BaseViewController, MainViewInput {
          frameRoundedView,
          chargeRoundedView,
          segmentView,
+         collectionView,
          statisticsButton,
          selectModeButton].forEach(view.addSubview(_:))
     }
@@ -149,6 +147,11 @@ class MainViewController: BaseViewController, MainViewInput {
             $0.top.equalTo(frameRoundedView.snp.bottom).offset(16)
             $0.left.right.equalToSuperview().inset(20)
         }
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(segmentView.snp.bottom).offset(20)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(statisticsButton.snp.top).offset(-20)
+        }
         statisticsButton.snp.makeConstraints {
             $0.left.equalTo(14)
             $0.height.equalTo(60)
@@ -168,7 +171,7 @@ class MainViewController: BaseViewController, MainViewInput {
 // MARK: - UICollectionViewDelegate & UICollectionViewDataSource methods
 // ------------------------------
 
-extension MainViewController: UICollectionViewDelegate & UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         6
@@ -177,5 +180,12 @@ extension MainViewController: UICollectionViewDelegate & UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ParametersCollectionViewCell = collectionView.dequeReusableCell(for: indexPath)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
+        let size: CGFloat = (collectionView.frame.size.width - space) / 2.2
+        return CGSize(width: size, height: size)
     }
 }
