@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RootUIControllerType {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 234.0/255.0, green: 46.0/255.0, blue: 73.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
         Inject.depContainer.register(RootUIControllerType.self) { _ in self }
         setupRootViewControllerAndSuggestAlternativeLoginMethods()
         return true
