@@ -39,7 +39,7 @@ class InformationRoundedView: UIView {
         switch type {
         case .frame(let num):
             let frameLabel = labelFactory.make(
-                withStyle: .headingH5,
+                withStyle: .headingH4,
                 text: num,
                 textColor: .white,
                 textAlignment: .center)
@@ -143,7 +143,7 @@ class InformationRoundedView: UIView {
         imageView.frame = Constants.imageFrame
         
         let label = labelFactory.make(
-            withStyle: .headingH5,
+            withStyle: .headingH4,
             text: "\(value)",
             textColor: .white)
         
