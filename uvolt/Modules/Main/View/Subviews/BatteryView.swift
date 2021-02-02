@@ -35,6 +35,11 @@ class BatteryView: UIView {
     private let borderView = UIView()
     private let smallBorderView = UIView()
     private let levelView = UIView()
+    private var energyImageView = UIImageView(frame: .init(x: 0, y: 0, width: 8, height: 16))
+    private var statusView = UIView()
+    private let levelLabel = LabelFactory().make(withStyle: .headingH4,
+                                             text: "0",
+                                             textColor: .white)
 
     // ------------------------------
     // MARK: - Life cycle
@@ -84,6 +89,7 @@ class BatteryView: UIView {
         }
         
         levelView.backgroundColor = fillColor
+        energyImageView.image = UIImage(named: "energy")
         
         setupViewsHierarchy()
         setupConstraints()
@@ -91,7 +97,9 @@ class BatteryView: UIView {
 
     private func setupViewsHierarchy() {
         [borderView, smallBorderView].forEach(addSubview(_:))
-        [levelView].forEach(borderView.addSubview(_:))
+        [levelView, statusView].forEach(borderView.addSubview(_:))
+        statusView.addSubview(levelLabel)
+        [energyImageView, levelLabel].forEach(statusView.addSubview(_:))
     }
     
     private func setupConstraints() {
@@ -109,10 +117,22 @@ class BatteryView: UIView {
             $0.left.height.equalToSuperview()
             levelWidthConstraint = $0.width.equalTo(0).constraint
         }
+        statusView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        energyImageView.snp.makeConstraints {
+            $0.left.top.bottom.equalToSuperview()
+        }
+        levelLabel.snp.makeConstraints {
+            $0.left.equalTo(energyImageView.snp.right).offset(4)
+            $0.centerY.equalTo(energyImageView)
+            $0.right.equalToSuperview()
+        }
     }
     
     private func layoutLevel() {
         if level >= 0 && level <= 100 {
+            levelLabel.text = "\(level)"
             levelWidth = ( CGFloat(level) * Constants.mainBorderSize.width ) / 100
             levelWidthConstraint?.update(offset: levelWidth)
         }
