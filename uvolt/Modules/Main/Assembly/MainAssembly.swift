@@ -15,7 +15,7 @@ final class MainModuleAssembly: BaseModuleAssembly {
     /// - Returns: Assembled module's ViewController
     func assemble(_ configuration: MainConfiguration? = nil) -> BaseViewController {
         let viewController = MainViewController()
-        let router = MainRouter()
+        let router = MainRouter(settingsModuleAssembly: injection.inject(SettingsModuleAssembly.self))
         let viewModel = MainViewModel()
         viewModel.view = viewController
         viewModel.router = router

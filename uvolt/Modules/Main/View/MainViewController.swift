@@ -98,7 +98,7 @@ class MainViewController: BaseViewController, MainViewInput {
     // ------------------------------
     
     @objc private func settingsDidTap() {
-        
+        output?.showSettingsPage()
     }
 
     private func setupViews() {

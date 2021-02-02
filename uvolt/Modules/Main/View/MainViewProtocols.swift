@@ -12,4 +12,5 @@ protocol MainViewInput: class {
 
 protocol MainViewOutput {
     func didLoad()
+    func showSettingsPage()
 }

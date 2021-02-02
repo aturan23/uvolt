@@ -23,6 +23,10 @@ class MainViewModel: MainViewOutput {
     func didLoad() {
         view?.display(viewAdapter: MainViewAdapter())
     }
+    
+    func showSettingsPage() {
+        router?.routeToSettings()
+    }
 
     // ------------------------------
     // MARK: - Private methods

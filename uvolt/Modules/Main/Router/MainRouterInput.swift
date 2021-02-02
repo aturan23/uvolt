@@ -6,4 +6,6 @@
 //  Copyright © 2021 Assylkhan Turan. All rights reserved.
 //
 
-protocol MainRouterInput { }
+protocol MainRouterInput {
+    func routeToSettings()
+}

@@ -46,6 +46,9 @@ extension Container {
         self.register(MainModuleAssembly.self) { _ in
             MainModuleAssembly(injection: self)
         }
+        self.register(SettingsModuleAssembly.self) { _ in
+            SettingsModuleAssembly(injection: self)
+        }
         return self
     }
     

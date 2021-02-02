@@ -41,7 +41,7 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
     // ------------------------------
 
     private func setupViews() {
-
+        view.backgroundColor = .black
 
         setupViewsHierarchy()
         setupConstraints()
