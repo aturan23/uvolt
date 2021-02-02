@@ -67,6 +67,8 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
 
     private func setupViews() {
         view.backgroundColor = .black
+        title = "CONNECT".localized()
+        navigationItem.setHidesBackButton(true, animated: true)
         
         setupViewsHierarchy()
         setupConstraints()
@@ -77,7 +79,7 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
     }
     private func setupConstraints() {
         tableView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaTopInset)
+            $0.top.equalToSuperview()
             $0.width.bottom.equalToSuperview()
         }
     }
