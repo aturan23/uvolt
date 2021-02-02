@@ -22,7 +22,8 @@ class AppCoordinator: AppCoordinating {
         self.window = window
         self.injection = injection
         navigationController = UINavigationController()
-        navigationController.setNavigationBarHidden(true, animated: false)
+        navigationController.navigationBar.barTintColor = .clear
+        navigationController.navigationBar.isTranslucent = false
     }
     
     // MARK: - RegistrationCoordinating
