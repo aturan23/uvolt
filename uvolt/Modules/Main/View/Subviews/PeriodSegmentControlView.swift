@@ -17,6 +17,7 @@ class PeriodSegmentControlView: UIView {
     private enum Constants {
         static let buttonViewHeight: CGFloat = 33
     }
+    var stateChanged: ((SegmentPeriod) -> ())?
     var selected: SegmentPeriod = .today {
         didSet {
             switch selected {
@@ -33,6 +34,7 @@ class PeriodSegmentControlView: UIView {
                 weekButton.isPressed = false
                 allTimeButton.isPressed = true
             }
+            stateChanged?(selected)
         }
     }
     

@@ -113,7 +113,10 @@ class MainViewController: BaseViewController, MainViewInput {
 
     private func setupViews() {
         view.backgroundColor = .black
-
+        segmentView.stateChanged = { (selected) in
+            print(selected.rawValue)
+        }
+        
         setupViewsHierarchy()
         setupConstraints()
     }

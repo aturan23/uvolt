@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SegmentPeriod {
+enum SegmentPeriod: String {
     case today
     case week
     case allTime
