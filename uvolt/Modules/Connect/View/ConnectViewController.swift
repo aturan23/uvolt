@@ -23,6 +23,7 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
             tableView.reloadData()
         }
     }
+    override var shouldAutorotate: Bool { return false }
     
     // ------------------------------
     // MARK: - UI components
