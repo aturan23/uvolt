@@ -89,27 +89,6 @@ class GaugeView: UIView {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
         var radius: CGFloat = (min(bounds.width, bounds.height))/2 - ringThickness/2
         
-        // Draw the ring background
-        let context = UIGraphicsGetCurrentContext()
-        context?.setLineWidth(CGFloat(ringThickness))
-        context?.beginPath()
-        context?.addArc(center: center,
-                        radius: radius,
-                        startAngle: 0,
-                        endAngle: .pi * 2,
-                        clockwise: false)
-        context?.strokePath()
-        
-        // Draw the ring progress background
-        context?.setLineWidth(CGFloat(ringThickness))
-        context?.beginPath()
-        context?.addArc(center: center,
-                        radius: radius,
-                        startAngle: CGFloat(startAngle),
-                        endAngle: CGFloat(endAngle),
-                        clockwise: false)
-        context?.strokePath()
-        
         // Progress Layer
         if progressLayer.superlayer == nil {
             layer.addSublayer(progressLayer)
@@ -146,6 +125,7 @@ class GaugeView: UIView {
                                               width: valueLabel.frame.width,
                                               height: 20)
         
+        let context = UIGraphicsGetCurrentContext()
         let lineWidth: CGFloat = 6
         let markers = 24
         let gaugeColor = UIColor.orange
@@ -161,7 +141,7 @@ class GaugeView: UIView {
         let angleDifference: CGFloat = 2 * .pi - startAngle + endAngle
         let arcLengthPerMark: CGFloat = angleDifference / CGFloat(markers)
         let markerWidth: CGFloat = lineWidth - 1
-        let markerSize: CGFloat = markerWidth * 2
+        let markerSize: CGFloat = 13
         let markerPath = UIBezierPath(rect: CGRect(x: -markerWidth / 2, y: 0, width: markerWidth, height: markerSize).integral)
         context?.translateBy(x: rect.width / 2, y: rect.height / 2)
         for i in 0...markers {
@@ -176,7 +156,6 @@ class GaugeView: UIView {
     }
     
     func strokeGauge() {
-        
         // Set progress for ring layer
         let progress = maxValue != 0 ? (value - minValue)/(maxValue - minValue) : 0
         progressLayer.strokeEnd = CGFloat(progress)
@@ -187,18 +166,5 @@ class GaugeView: UIView {
             ringColor = delegate.ringStokeColor(gaugeView: self, value: value)
         }
         progressLayer.strokeColor = ringColor.cgColor
-    }
-}
-
-extension CGContext {
-    func drawDot(center: CGPoint, radius: Double, fillColor: UIColor) {
-        beginPath()
-        addArc(center: center,
-               radius: CGFloat(radius),
-               startAngle: 0,
-               endAngle: .pi * 2,
-               clockwise: false)
-        setFillColor(fillColor.cgColor)
-        fillPath()
     }
 }
