@@ -27,6 +27,10 @@ class MainViewModel: MainViewOutput {
     func showSettingsPage() {
         router?.routeToSettings()
     }
+    
+    func showSpeedPage() {
+        router?.routeToSpeed()
+    }
 
     // ------------------------------
     // MARK: - Private methods

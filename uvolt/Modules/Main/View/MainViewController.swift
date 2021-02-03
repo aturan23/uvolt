@@ -117,12 +117,17 @@ class MainViewController: BaseViewController, MainViewInput {
     @objc private func settingsDidTap() {
         output?.showSettingsPage()
     }
+    
+    @objc private func statisticsDidTap() {
+        output?.showSpeedPage()
+    }
 
     private func setupViews() {
         view.backgroundColor = .black
         segmentView.stateChanged = { (selected) in
             print(selected.rawValue)
         }
+        statisticsButton.addTarget(self, action: #selector(statisticsDidTap), for: .touchUpInside)
         
         setupViewsHierarchy()
         setupConstraints()

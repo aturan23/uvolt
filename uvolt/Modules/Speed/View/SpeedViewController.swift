@@ -41,7 +41,8 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
     // ------------------------------
 
     private func setupViews() {
-
+        title = "Speed"
+        view.backgroundColor = .black
 
         setupViewsHierarchy()
         setupConstraints()
