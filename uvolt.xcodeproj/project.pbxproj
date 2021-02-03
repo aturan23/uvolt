@@ -331,8 +331,8 @@
 				5EEB71A67BDF9667B43FF6D8 /* Preload */,
 				F0942CA66F036B65C46E149F /* Connect */,
 				1EF0B1ED9FFC295925BB3364 /* Main */,
-				007D353D47D792D8B726B4E8 /* Settings */,
 				12D11A2CD9A3B5C148BE5146 /* Speed */,
+				007D353D47D792D8B726B4E8 /* Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
