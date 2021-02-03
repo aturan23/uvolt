@@ -60,6 +60,7 @@
 		4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */; };
 		4F892EF525CA594300BA4F12 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EF425CA594300BA4F12 /* UINavigationController.swift */; };
 		4F892F0125CA74E600BA4F12 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892F0025CA74E600BA4F12 /* GaugeView.swift */; };
+		4F892F0725CA8CC000BA4F12 /* OPLGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892F0625CA8CC000BA4F12 /* OPLGaugeView.swift */; };
 		51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ED39FD9E897BE0987B5D0 /* SettingsRouterInput.swift */; };
@@ -158,6 +159,7 @@
 		4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F892EF425CA594300BA4F12 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4F892F0025CA74E600BA4F12 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		4F892F0625CA8CC000BA4F12 /* OPLGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPLGaugeView.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				4F892F0025CA74E600BA4F12 /* GaugeView.swift */,
+				4F892F0625CA8CC000BA4F12 /* OPLGaugeView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				CDDD6D80F0A6E3429A039518 /* MainRouter.swift in Sources */,
 				3F8E6B162505188EDD57296A /* MainAssembly.swift in Sources */,
 				4F892EBE25C8302500BA4F12 /* IndicatorProtocol.swift in Sources */,
+				4F892F0725CA8CC000BA4F12 /* OPLGaugeView.swift in Sources */,
 				36FB4C0397237914C264C05A /* SettingsViewProtocols.swift in Sources */,
 				51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */,
 				F0754C967547A2643310C971 /* SettingsViewAdapter.swift in Sources */,
