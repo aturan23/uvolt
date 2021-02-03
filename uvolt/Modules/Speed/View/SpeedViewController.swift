@@ -77,24 +77,13 @@ class SpeedViewController: BaseViewController, SpeedViewInput, GaugeViewDelegate
     private func setupViews() {
         view.backgroundColor = .black
         
-        let screenMinSize = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
-        let ratio = Double(screenMinSize)/320
-        gaugeView.divisionsRadius = 1.25 * ratio
-        gaugeView.subDivisionsRadius = (1.25 - 0.5) * ratio
-        gaugeView.ringThickness = 16 * ratio
-        gaugeView.valueFont = .systemFont(ofSize: CGFloat(140 * ratio))
-        gaugeView.unitOfMeasurementFont = .systemFont(ofSize: CGFloat(16 * ratio))
-        gaugeView.minMaxValueFont = .systemFont(ofSize: CGFloat(12 * ratio))
         gaugeView.delegate = self
         gaugeView.value = 81
         
         // Update gauge view
         gaugeView.minValue = 0
         gaugeView.maxValue = 100
-                    
-        gaugeView.ringBackgroundColor = .black
-        gaugeView.valueTextColor = .white
-        gaugeView.unitOfMeasurementTextColor = UIColor(white: 0.7, alpha: 1)
+
         gaugeView.setNeedsDisplay()
         
 
