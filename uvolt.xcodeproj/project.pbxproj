@@ -59,6 +59,7 @@
 		4F892EEC25C9565800BA4F12 /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEB25C9565800BA4F12 /* BatteryView.swift */; };
 		4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */; };
 		4F892EF525CA594300BA4F12 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EF425CA594300BA4F12 /* UINavigationController.swift */; };
+		4F892F0125CA74E600BA4F12 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892F0025CA74E600BA4F12 /* GaugeView.swift */; };
 		51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ED39FD9E897BE0987B5D0 /* SettingsRouterInput.swift */; };
@@ -156,6 +157,7 @@
 		4F892EEB25C9565800BA4F12 /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F892EF425CA594300BA4F12 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		4F892F0025CA74E600BA4F12 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -540,6 +542,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		4F892EFF25CA74D200BA4F12 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4F892F0025CA74E600BA4F12 /* GaugeView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		5CBD17521B5AEC3EA81D4422 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +615,7 @@
 		C6E2DAAFA8701A769B74DEE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4F892EFF25CA74D200BA4F12 /* Subviews */,
 				6A8AA4DE29D1703443A0F391 /* SpeedViewProtocols.swift */,
 				BE37399F37BEA1FA442C3145 /* SpeedViewController.swift */,
 				8D8993FDBAD2760E941361AE /* SpeedViewAdapter.swift */,
@@ -857,6 +868,7 @@
 				A0432921A4F0AB5E0EC0FF29 /* MainModuleOutput.swift in Sources */,
 				5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */,
 				E2B14636E71CCBC4ED640484 /* MainRouterInput.swift in Sources */,
+				4F892F0125CA74E600BA4F12 /* GaugeView.swift in Sources */,
 				CDDD6D80F0A6E3429A039518 /* MainRouter.swift in Sources */,
 				3F8E6B162505188EDD57296A /* MainAssembly.swift in Sources */,
 				4F892EBE25C8302500BA4F12 /* IndicatorProtocol.swift in Sources */,

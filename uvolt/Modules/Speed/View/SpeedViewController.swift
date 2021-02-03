@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpeedViewController: BaseViewController, SpeedViewInput {
+class SpeedViewController: BaseViewController, SpeedViewInput, GaugeViewDelegate {
 
     // ------------------------------
     // MARK: - Properties
@@ -18,6 +18,9 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
         static let cardSize: CGSize = .init(width: 130, height: 90)
     }
     var output: SpeedViewOutput?
+    
+    var velocity: Double = 0
+    var acceleration: Double = 5
 
     // ------------------------------
     // MARK: - UI components
@@ -26,6 +29,8 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
     private let speedCardView = InformationRoundedView()
     private let distanceCardView = InformationRoundedView()
     private let odoCardView = InformationRoundedView()
+    
+    private let gaugeView = GaugeView()
 
     // ------------------------------
     // MARK: - Life cycle
@@ -59,16 +64,46 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
     // ------------------------------
     // MARK: - Private methods
     // ------------------------------
+    
+    func ringStokeColor(gaugeView: GaugeView, value: Double) -> UIColor {
+        switch value {
+        case 0...51: return .green
+        case 52...80: return .orange
+        case 81...100: return .red
+        default: return .green
+        }
+    }
 
     private func setupViews() {
         view.backgroundColor = .black
+        
+        let screenMinSize = min(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height)
+        let ratio = Double(screenMinSize)/320
+        gaugeView.divisionsRadius = 1.25 * ratio
+        gaugeView.subDivisionsRadius = (1.25 - 0.5) * ratio
+        gaugeView.ringThickness = 16 * ratio
+        gaugeView.valueFont = .systemFont(ofSize: CGFloat(140 * ratio))
+        gaugeView.unitOfMeasurementFont = .systemFont(ofSize: CGFloat(16 * ratio))
+        gaugeView.minMaxValueFont = .systemFont(ofSize: CGFloat(12 * ratio))
+        gaugeView.delegate = self
+        gaugeView.value = 81
+        
+        // Update gauge view
+        gaugeView.minValue = 0
+        gaugeView.maxValue = 100
+                    
+        gaugeView.ringBackgroundColor = .black
+        gaugeView.valueTextColor = .white
+        gaugeView.unitOfMeasurementTextColor = UIColor(white: 0.7, alpha: 1)
+        gaugeView.setNeedsDisplay()
+        
 
         setupViewsHierarchy()
         setupConstraints()
     }
 
     private func setupViewsHierarchy() {
-        [speedCardView, distanceCardView, odoCardView].forEach(view.addSubview(_:))
+        [speedCardView, distanceCardView, odoCardView, gaugeView].forEach(view.addSubview(_:))
     }
 
     private func setupConstraints() {
@@ -81,5 +116,9 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
         speedCardView.snp.makeConstraints { $0.top.equalTo(20) }
         distanceCardView.snp.makeConstraints { $0.centerY.equalToSuperview() }
         odoCardView.snp.makeConstraints { $0.bottom.equalTo(-20) }
+        gaugeView.snp.makeConstraints {
+            $0.size.equalTo(300)
+            $0.center.equalToSuperview()
+        }
     }
 }
