@@ -19,7 +19,6 @@ class PreloadViewController: BaseViewController, PreloadViewInput {
         static let progressHeight: CGFloat = 10
     }
     var output: PreloadViewOutput?
-    override var shouldAutorotate: Bool { return false }
 
     // ------------------------------
     // MARK: - UI components

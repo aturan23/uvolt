@@ -25,7 +25,6 @@ class MainViewController: BaseViewController, MainViewInput {
             collectionView.reloadData()
         }
     }
-    override var shouldAutorotate: Bool { return false }
 
     // ------------------------------
     // MARK: - UI components
