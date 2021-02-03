@@ -60,6 +60,7 @@
 		4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */; };
 		4F892EF525CA594300BA4F12 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EF425CA594300BA4F12 /* UINavigationController.swift */; };
 		4F892F0125CA74E600BA4F12 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892F0025CA74E600BA4F12 /* GaugeView.swift */; };
+		4FC8887725CAFFAA003ACFF2 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC8887625CAFFAA003ACFF2 /* SettingsTableViewCell.swift */; };
 		51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ED39FD9E897BE0987B5D0 /* SettingsRouterInput.swift */; };
@@ -158,6 +159,7 @@
 		4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4F892EF425CA594300BA4F12 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4F892F0025CA74E600BA4F12 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
+		4FC8887625CAFFAA003ACFF2 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -550,6 +552,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		4FC8887525CAFF96003ACFF2 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				4FC8887625CAFFAA003ACFF2 /* SettingsTableViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		5CBD17521B5AEC3EA81D4422 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +583,7 @@
 		684F1951AF0E34BC4A8E2EB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FC8887525CAFF96003ACFF2 /* Subviews */,
 				0A7E446535881E4CB5F7A944 /* SettingsViewProtocols.swift */,
 				9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */,
 				EEF6083497D26134346DA800 /* SettingsViewAdapter.swift */,
@@ -882,6 +893,7 @@
 				71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */,
 				DB4EC52903DE200978B8227D /* SettingsRouter.swift in Sources */,
 				B3B8D3D489B2CAD4666BFFB3 /* SettingsAssembly.swift in Sources */,
+				4FC8887725CAFFAA003ACFF2 /* SettingsTableViewCell.swift in Sources */,
 				8D435639874CD2977BEDEE8E /* SpeedViewProtocols.swift in Sources */,
 				A4C705468B5776E6CADBC16C /* SpeedViewController.swift in Sources */,
 				B7F9081D24F159BC38C55BCC /* SpeedViewAdapter.swift in Sources */,
