@@ -61,7 +61,7 @@ class GaugeView: UIView {
     
     var startAngle: CGFloat = .pi * 3/4
     var endAngle: CGFloat = .pi/4 + .pi * 2
-    private let points = 10
+    private let points = 1
     
     var progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -196,7 +196,7 @@ class GaugeView: UIView {
     
     private func addInnerIndicators() {
         let centerPoint = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        for i in 0...points {
+        for i in 1...points {
             let indicatorLayer = CAShapeLayer()
             indicatorLayer.frame = bounds
             
@@ -232,13 +232,13 @@ class GaugeView: UIView {
     }
     
     private func calculateDegree(for point: CGFloat) -> CGFloat {
-        let floatPoints: CGFloat = CGFloat(1)
-        if point == 0 {
+        let floatPoints: CGFloat = CGFloat(points)
+        if point == 1 {
             return startAngle
         } else if point == floatPoints {
             return endAngle
         } else {
-            return startAngle - ((270 - (endAngle - startAngle)) / CGFloat(floatPoints)) * point
+            return startAngle - ((360 - (endAngle - startAngle)) / CGFloat(floatPoints)) * point
         }
     }
     
