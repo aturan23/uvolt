@@ -23,6 +23,15 @@ class SpeedViewController: BaseViewController, SpeedViewInput {
     // ------------------------------
     // MARK: - Life cycle
     // ------------------------------
+    
+    override func viewWillAppear(_ animated: Bool) {
+      AppDelegate.AppUtility.lockOrientation(.landscapeRight, andRotateTo: .landscapeRight)
+    }
+        
+    override func viewWillDisappear(_ animated : Bool) {
+      super.viewWillDisappear(animated)
+      AppDelegate.AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
