@@ -36,6 +36,7 @@ class InformationRoundedView: UIView {
     
     func display(type: InformationType) {
         titleLabel.text = type.title
+        cleanSubviews()
         switch type {
         case .frame(let num):
             let frameLabel = labelFactory.make(
@@ -130,6 +131,12 @@ class InformationRoundedView: UIView {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(16)
         }
+    }
+    
+    private func cleanSubviews() {
+        subviews.forEach { $0.removeFromSuperview() }
+        setupViewsHierarchy()
+        setupConstraints()
     }
     
     private func buildImagedLabelView(image: String?, value: Float) -> UIView {
