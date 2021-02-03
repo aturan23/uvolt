@@ -38,20 +38,8 @@ class GaugeView: UIView {
     /// Maximum value.
     var maxValue: Double = 120
     
-    /// Limit value.
-    var limitValue: Double = 50
-    
     /// The thickness of the ring.
     private var ringThickness: CGFloat = 30
-    
-    /// A boolean indicates whether to show limit dot.
-    var showLimitDot: Bool = true
-    
-    /// The radius of limit dot.
-    var limitDotRadius: Double = 2
-    
-    /// The color of limit dot.
-    var limitDotColor: UIColor = .red
     
     /// Text color of value label.
     var valueTextColor: UIColor = .red
@@ -59,8 +47,8 @@ class GaugeView: UIView {
     /// The receiver of all gauge view delegate callbacks.
     weak var delegate: GaugeViewDelegate? = nil
     
-    var startAngle: CGFloat = .pi * 3/4
-    var endAngle: CGFloat = .pi/4 + .pi * 2
+    private var startAngle: CGFloat = .pi * 3/4
+    private var endAngle: CGFloat = .pi/4 + .pi * 2
     private let points = 24
     
     var progressLayer: CAShapeLayer = {
@@ -136,9 +124,11 @@ class GaugeView: UIView {
             addSubview(unitOfMeasurementLabel)
         }
         unitOfMeasurementLabel.frame = CGRect(x: valueLabel.frame.origin.x,
-                                              y: valueLabel.frame.maxY - 10,
+                                              y: valueLabel.frame.maxY - 50,
                                               width: valueLabel.frame.width,
                                               height: 20)
+        
+        
     }
     
     private func drawBorderedLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
@@ -184,5 +174,33 @@ class GaugeView: UIView {
         if subLayer.superlayer == nil {
             layer.addSublayer(subLayer)
         }
+    }
+    
+    private func buildCircleView(
+        text: String? = nil,
+        imaged: Bool = false,
+        textColor: UIColor,
+        size: CGFloat = 36) -> UIView {
+        let view = UIView(frame: .init(x: 0, y: 0, width: size, height: size))
+        view.layer.cornerRadius = size / 2
+        view.layer.borderWidth = 2
+        view.layer.borderColor = UIColor.white.cgColor
+        view.backgroundColor = Color.grayBackground
+        
+        if let text = text {
+            let label = labelFactory.make(withStyle: .headingH2,
+                                          text: text,
+                                          textColor: textColor,
+                                          textAlignment: .center)
+            addSubview(label)
+            label.snp.makeConstraints { $0.center.equalToSuperview() }
+        }
+        if imaged {
+            let imageView = UIImageView(frame: .init(x: 0, y: 0, width: 8, height: 16))
+            imageView.image = UIImage(named: "energy")
+            addSubview(imageView)
+            imageView.snp.makeConstraints { $0.center.equalToSuperview() }
+        }
+        return view
     }
 }
