@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum TextStyle {
-    /// Heading / H1 - 32 Semibold
+    /// Heading / H1 - 72 Semibold
     case headingH1
     
     /// Heading / H2 - 24 Semibold
@@ -68,7 +68,7 @@ public enum TextStyle {
     var font: UIFont {
         switch self {
         case .headingH1:
-            return .semibold(size: 32)
+            return .semibold(size: 72)
         case .headingH2:
             return .semibold(size: 24)
         case .headingH4:
