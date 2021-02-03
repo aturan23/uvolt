@@ -99,42 +99,10 @@ class GaugeView: UIView {
         // Progress Layer
         addLayer(progressLayer)
         drawBorderedLayer(&progressLayer, thickness: ringThickness)
-        
         addLayer(borderLayer)
         drawBorderedLayer(&borderLayer, thickness: smallThickness)
         addInnerIndicators(thickness: smallThickness)
-        
-        
         setupValueAndMeasurementViews()
-        
-//        let context = UIGraphicsGetCurrentContext()
-//        let lineWidth: CGFloat = 6
-//        let markers = 24
-//        let gaugeColor = UIColor.white
-//        let radius = min(bounds.width, bounds.height) / 2
-//        let startAngle: CGFloat = 0.75 * CGFloat(Double.pi)
-//        let endAngle: CGFloat = 0.25 * CGFloat(Double.pi)
-//        let outlinePath = UIBezierPath(arcCenter: center, radius: radius - (lineWidth / 2), startAngle: startAngle, endAngle: endAngle, clockwise: true)
-//        outlinePath.lineWidth = lineWidth
-//        gaugeColor.setStroke()
-//        outlinePath.stroke()
-//        context?.saveGState()
-//        gaugeColor.setFill()
-//        let angleDifference: CGFloat = 2 * .pi - startAngle + endAngle
-//        let arcLengthPerMark: CGFloat = angleDifference / CGFloat(markers)
-//        let markerWidth: CGFloat = lineWidth - 1
-//        let markerSize: CGFloat = 13
-//        let markerPath = UIBezierPath(rect: CGRect(x: -markerWidth / 2, y: 0, width: markerWidth, height: markerSize).integral)
-//        context?.translateBy(x: rect.width / 2, y: rect.height / 2)
-//        for i in 0...markers {
-//            context?.saveGState()
-//            let angle = arcLengthPerMark * CGFloat(i) + startAngle - .pi / 2
-//            context?.rotate(by: angle)
-//            context?.translateBy(x: 0, y: rect.height / 2 - markerSize)
-//            markerPath.fill()
-//            context?.rotate(by: CGFloat(Double.pi))
-//            context?.restoreGState()
-//        }
     }
     
     func strokeGauge() {
