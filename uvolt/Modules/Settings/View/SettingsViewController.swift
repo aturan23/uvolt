@@ -17,6 +17,16 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
     private enum Constants {
         static let resetButtonHeight = 60
         static let cellIdentifier = "cellIdentifier"
+        static let headerIdentifier = "headerIdentifier"
+        static let frameList: [SettingFrameType] = [.name,
+                                                    .measurment,
+                                                    .distance,
+                                                    .odometer,
+                                                    .calory,
+                                                    .cost,
+                                                    .log,
+                                                    .firmware,
+                                                    .language]
     }
     var output: SettingsViewOutput?
 
@@ -28,8 +38,9 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
-        
-        view.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        view.backgroundColor = .black
+        view.register(SettingsTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        view.register(SettingTableHeaderView.self, forHeaderFooterViewReuseIdentifier: Constants.headerIdentifier)
         
         return view
     }()
@@ -98,15 +109,19 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        Constants.frameList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier)!
-        cell.textLabel?.text = "item \(indexPath.row)"
+        let cell: SettingsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier) as! SettingsTableViewCell
+        cell.display(by: Constants.frameList[indexPath.row])
         
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view: SettingTableHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerIdentifier) as! SettingTableHeaderView
+        
+        return view
+    }
 }

@@ -13,6 +13,8 @@
 		0B0D8211FD4DFDA94AC38ED1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016835B961426D6E4C2B636 /* MainViewController.swift */; };
 		0C6BD52DFD68761D476A0591 /* ConnectViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557EB2C602D5853F6E906C4 /* ConnectViewProtocols.swift */; };
 		10398E7FE27863FD3A83D1C7 /* SettingsModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B7CE7C465B63D8D147EF3F /* SettingsModuleInput.swift */; };
+		149382C325CA4D9000208A68 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149382C225CA4D9000208A68 /* SettingsTableViewCell.swift */; };
+		149382C625CA61DF00208A68 /* SettingTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149382C525CA61DF00208A68 /* SettingTableHeaderView.swift */; };
 		1E83FBAC434891C0739BC0FD /* PreloadModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3CB668C11BD22264A6ADC /* PreloadModuleInput.swift */; };
 		30A93AF0349FB1DF59122BB1 /* ConnectModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */; };
 		35053AF4FF0290F3787CCCC5 /* ConnectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */; };
@@ -101,6 +103,8 @@
 		0A7E446535881E4CB5F7A944 /* SettingsViewProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocols.swift; sourceTree = "<group>"; };
 		0DC847BE07A86036BFB9D546 /* ConnectViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectViewModel.swift; sourceTree = "<group>"; };
 		0F0BB4282214D4D257D16048 /* SpeedViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SpeedViewModel.swift; sourceTree = "<group>"; };
+		149382C225CA4D9000208A68 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		149382C525CA61DF00208A68 /* SettingTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableHeaderView.swift; sourceTree = "<group>"; };
 		1534DF41B1943263394CEA68 /* PreloadViewProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreloadViewProtocols.swift; sourceTree = "<group>"; };
 		1A0459D25F5D9FEAD5ADDB67 /* MainViewAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewAdapter.swift; sourceTree = "<group>"; };
 		23B7CE7C465B63D8D147EF3F /* SettingsModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsModuleInput.swift; sourceTree = "<group>"; };
@@ -218,6 +222,15 @@
 				F84E922694C4D244C2FD2EB9 /* PreloadViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		149382C125CA4C5500208A68 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				149382C225CA4D9000208A68 /* SettingsTableViewCell.swift */,
+				149382C525CA61DF00208A68 /* SettingTableHeaderView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		1CEB00E54FFBCA5806B798D5 /* Router */ = {
@@ -554,6 +567,7 @@
 		684F1951AF0E34BC4A8E2EB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				149382C125CA4C5500208A68 /* Subviews */,
 				0A7E446535881E4CB5F7A944 /* SettingsViewProtocols.swift */,
 				9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */,
 				EEF6083497D26134346DA800 /* SettingsViewAdapter.swift */,
@@ -793,6 +807,7 @@
 				4F03A0CD25C7A7D8004E64B9 /* BaseViewController.swift in Sources */,
 				4F03A0EF25C7AFF7004E64B9 /* Color.swift in Sources */,
 				4F03A0DF25C7AA6A004E64B9 /* AppCoordinator.swift in Sources */,
+				149382C625CA61DF00208A68 /* SettingTableHeaderView.swift in Sources */,
 				4F03A0E325C7AEA2004E64B9 /* LabelFactory.swift in Sources */,
 				4F03A0DB25C7AA35004E64B9 /* AppCoordinating.swift in Sources */,
 				4F03A0AB25C7A393004E64B9 /* SupportedLanguage.swift in Sources */,
@@ -846,6 +861,7 @@
 				5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */,
 				E2B14636E71CCBC4ED640484 /* MainRouterInput.swift in Sources */,
 				CDDD6D80F0A6E3429A039518 /* MainRouter.swift in Sources */,
+				149382C325CA4D9000208A68 /* SettingsTableViewCell.swift in Sources */,
 				3F8E6B162505188EDD57296A /* MainAssembly.swift in Sources */,
 				4F892EBE25C8302500BA4F12 /* IndicatorProtocol.swift in Sources */,
 				36FB4C0397237914C264C05A /* SettingsViewProtocols.swift in Sources */,
