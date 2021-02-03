@@ -240,7 +240,7 @@ extension SettingsTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         frameType == .measurment ?
             Constants.measurmentComponents[row].title:
-            Constants.languages[row].title
+            Constants.languages[row].localizedTitle
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
