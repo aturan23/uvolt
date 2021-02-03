@@ -58,6 +58,7 @@
 		4F892ED925C9233C00BA4F12 /* InformationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892ED825C9233C00BA4F12 /* InformationType.swift */; };
 		4F892EEC25C9565800BA4F12 /* BatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEB25C9565800BA4F12 /* BatteryView.swift */; };
 		4F892EEF25C95DCC00BA4F12 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */; };
+		4F892EF525CA594300BA4F12 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F892EF425CA594300BA4F12 /* UINavigationController.swift */; };
 		51132395B1BA70A9C8F6D4F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9867F8F40E220A5A31AFC8CB /* SettingsViewController.swift */; };
 		5D5D80FE469A0DB9D49F2D30 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50014610B62F1BFF09034904 /* MainViewModel.swift */; };
 		71E6F2E6C3520C4D6609C065 /* SettingsRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25ED39FD9E897BE0987B5D0 /* SettingsRouterInput.swift */; };
@@ -154,6 +155,7 @@
 		4F892ED825C9233C00BA4F12 /* InformationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationType.swift; sourceTree = "<group>"; };
 		4F892EEB25C9565800BA4F12 /* BatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryView.swift; sourceTree = "<group>"; };
 		4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		4F892EF425CA594300BA4F12 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		50014610B62F1BFF09034904 /* MainViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		53BB174DDB7071BA09660AFB /* MainModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainModuleInput.swift; sourceTree = "<group>"; };
 		55C426767D675EA6EA3163C6 /* ConnectModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ConnectModuleOutput.swift; sourceTree = "<group>"; };
@@ -232,7 +234,6 @@
 				2F1A025B8410347C106CA1B1 /* Router */,
 				A9C5F42F2B5A9938F3983AD8 /* Assembly */,
 			);
-			name = Speed;
 			path = Speed;
 			sourceTree = "<group>";
 		};
@@ -274,7 +275,6 @@
 				7D83A4FFB1F304DC06EDF9EF /* SpeedRouterInput.swift */,
 				D31998EED4D02995E79DC700 /* SpeedRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -436,6 +436,7 @@
 				4F892EC825C8312200BA4F12 /* CALayerExtension.swift */,
 				4F892ECB25C8314800BA4F12 /* UIButtonExtension.swift */,
 				4F892EEE25C95DCC00BA4F12 /* UIViewExtension.swift */,
+				4F892EF425CA594300BA4F12 /* UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -590,7 +591,6 @@
 			children = (
 				1F712BDB7EB3CED1CD46979E /* SpeedAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -609,7 +609,6 @@
 				BE37399F37BEA1FA442C3145 /* SpeedViewController.swift */,
 				8D8993FDBAD2760E941361AE /* SpeedViewAdapter.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -658,7 +657,6 @@
 				F4F1D0C83BE9E33B6299C4FD /* SpeedModuleOutput.swift */,
 				488DB05DA1E108C9CEB6FF10 /* SpeedViewModel.swift */,
 			);
-			name = ViewModel;
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
@@ -825,6 +823,7 @@
 				4F03A0B025C7A3C4004E64B9 /* GlobalConstants.swift in Sources */,
 				4F03A0E725C7AEF3004E64B9 /* TextStyle.swift in Sources */,
 				4F03A0F325C7B143004E64B9 /* UILabelExtension.swift in Sources */,
+				4F892EF525CA594300BA4F12 /* UINavigationController.swift in Sources */,
 				4F03A0D225C7A88E004E64B9 /* ContainerExtension.swift in Sources */,
 				4F892EC525C830FD00BA4F12 /* UIImageExtension.swift in Sources */,
 				0011EF50AC0FB258CB3105A9 /* PreloadViewProtocols.swift in Sources */,
