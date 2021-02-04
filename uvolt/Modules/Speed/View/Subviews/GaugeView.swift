@@ -179,6 +179,7 @@ class GaugeView: UIView {
         shapeLayer.lineDashPattern = [one, two].reversed()
         shapeLayer.lineCap = CAShapeLayerLineCap.butt
         shapeLayer.strokeEnd = CGFloat((30 - minValue)/(maxValue - minValue))
+        
         layer.addSublayer(shapeLayer)
     }
     
@@ -188,11 +189,15 @@ class GaugeView: UIView {
         }
     }
     
+    private func addView(_ subView: UIView) {
+        if subView.superview == nil {
+            addSubview(subView)
+        }
+    }
+    
     private func setupValueAndMeasurementViews() {
         // Value Label
-        if valueLabel.superview == nil {
-            addSubview(valueLabel)
-        }
+        addView(valueLabel)
         valueLabel.adjustsFontSizeToFitWidth = true
         valueLabel.minimumScaleFactor = 0.5
         valueLabel.text = String(format: "%.0f", value)
@@ -200,13 +205,18 @@ class GaugeView: UIView {
         valueLabel.snp.makeConstraints { $0.center.equalToSuperview() }
         
         // Unit Of Measurement Label
-        if unitOfMeasurementLabel.superview == nil {
-            addSubview(unitOfMeasurementLabel)
-        }
+        addView(unitOfMeasurementLabel)
         unitOfMeasurementLabel.frame = CGRect(x: valueLabel.frame.origin.x,
                                               y: valueLabel.frame.maxY - 50,
                                               width: valueLabel.frame.width,
                                               height: 20)
+        let gearButtonView = buildCircleView(text: "1", imaged: false, textColor: .white, size: 50)
+        addView(gearButtonView)
+        gearButtonView.snp.makeConstraints {
+            $0.top.equalTo(valueLabel.snp.bottom).offset(30)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo(50)
+        }
     }
     
     private func buildCircleView(
@@ -214,27 +224,29 @@ class GaugeView: UIView {
         imaged: Bool = false,
         textColor: UIColor,
         size: CGFloat = 36) -> UIView {
-        let view = UIView(frame: .init(x: 0, y: 0, width: size, height: size))
-        view.layer.cornerRadius = size / 2
-        view.layer.borderWidth = 2
-        view.layer.borderColor = UIColor.white.cgColor
-        view.backgroundColor = Color.grayBackground
+        let containerView = UIView()
+        let circleView = UIView(frame: .init(x: 0, y: 0, width: size, height: size))
+        circleView.layer.cornerRadius = size / 2
+        circleView.layer.borderWidth = 2
+        circleView.layer.borderColor = UIColor.white.cgColor
+        circleView.backgroundColor = Color.grayBackground
         
         if let text = text {
             let label = labelFactory.make(withStyle: .headingH2,
                                           text: text,
                                           textColor: textColor,
                                           textAlignment: .center)
-            addSubview(label)
+            circleView.addSubview(label)
             label.snp.makeConstraints { $0.center.equalToSuperview() }
         }
         if imaged {
             let imageView = UIImageView(frame: .init(x: 0, y: 0, width: 8, height: 16))
             imageView.image = UIImage(named: "energy")
-            addSubview(imageView)
+            circleView.addSubview(imageView)
             imageView.snp.makeConstraints { $0.center.equalToSuperview() }
         }
-        return view
+        containerView.addSubview(circleView)
+        return containerView
     }
     
     private func buildDefaultLayer() -> CAShapeLayer {
