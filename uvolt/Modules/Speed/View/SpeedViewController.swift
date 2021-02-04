@@ -83,6 +83,7 @@ class SpeedViewController: BaseViewController, SpeedViewInput, GaugeViewDelegate
         // Update gauge view
         gaugeView.minValue = 0
         gaugeView.maxValue = 100
+        gaugeView.layer.masksToBounds = false
 
         gaugeView.setNeedsDisplay()
         
