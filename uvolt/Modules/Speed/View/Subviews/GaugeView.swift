@@ -51,7 +51,7 @@ class GaugeView: UIView {
     private var endAngle: CGFloat = .pi/4 + .pi * 2
     private let points = 24
     
-    var progressLayer: CAShapeLayer = {
+    private lazy var progressLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.contentsScale = UIScreen.main.scale
         layer.fillColor = UIColor.clear.cgColor
@@ -60,7 +60,7 @@ class GaugeView: UIView {
         layer.strokeEnd = 0
         return layer
     }()
-    var borderLayer: CAShapeLayer = {
+    private lazy var borderLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.contentsScale = UIScreen.main.scale
         layer.fillColor = UIColor.clear.cgColor
@@ -134,6 +134,24 @@ class GaugeView: UIView {
     private func drawBorderedLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
         let radius: CGFloat = (min(bounds.width, bounds.height))/2 - thickness/2
+        
+        subLayer.frame = CGRect(x: center.x - radius - CGFloat(thickness)/2,
+                                y: center.y - radius - CGFloat(thickness)/2,
+                                width: (radius + CGFloat(thickness)/2) * 2,
+                                height: (radius + CGFloat(thickness)/2) * 2)
+        subLayer.bounds = subLayer.frame
+        let smoothedPath = UIBezierPath(arcCenter: subLayer.position,
+                                        radius: radius,
+                                        startAngle: startAngle,
+                                        endAngle: endAngle,
+                                        clockwise: true)
+        subLayer.path = smoothedPath.cgPath
+        subLayer.lineWidth = CGFloat(thickness)
+    }
+    
+    private func drawBorderedGrayLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
+        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
+        let radius: CGFloat = (min(bounds.width, bounds.height))/2
         
         subLayer.frame = CGRect(x: center.x - radius - CGFloat(thickness)/2,
                                 y: center.y - radius - CGFloat(thickness)/2,
