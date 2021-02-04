@@ -1,24 +1,22 @@
 //
-//  MainAssembly.swift
+//  SpeedAssembly.swift
 //  uvolt
 //
-//  Created by Turan Assylkhan on 01/02/2021.
+//  Created by Turan Assylkhan on 03/02/2021.
 //  Copyright © 2021 Assylkhan Turan. All rights reserved.
 //
 
-typealias MainConfiguration = (MainModuleInput) -> MainModuleOutput?
+typealias SpeedConfiguration = (SpeedModuleInput) -> SpeedModuleOutput?
 
-final class MainModuleAssembly: BaseModuleAssembly {
+final class SpeedModuleAssembly: BaseModuleAssembly {
     /// Assembles Module components and returns a target controller
     ///
     /// - Parameter configuration: optional configuration closure called by module owner
     /// - Returns: Assembled module's ViewController
-    func assemble(_ configuration: MainConfiguration? = nil) -> BaseViewController {
-        let viewController = MainViewController()
-        let router = MainRouter(
-            settingsModuleAssembly: injection.inject(SettingsModuleAssembly.self),
-            speedModuleAssembly: injection.inject(SpeedModuleAssembly.self))
-        let viewModel = MainViewModel()
+    func assemble(_ configuration: SpeedConfiguration? = nil) -> BaseViewController {
+        let viewController = SpeedViewController()
+        let router = SpeedRouter()
+        let viewModel = SpeedViewModel()
         viewModel.view = viewController
         viewModel.router = router
         router.viewController = viewController

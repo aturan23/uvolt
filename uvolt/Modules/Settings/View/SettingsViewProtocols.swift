@@ -12,4 +12,5 @@ protocol SettingsViewInput: class {
 
 protocol SettingsViewOutput {
     func didLoad()
+    func setItemValue(by type: SettingFrameType, value: String?)
 }

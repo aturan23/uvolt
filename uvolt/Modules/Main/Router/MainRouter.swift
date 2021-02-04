@@ -10,9 +10,13 @@ class MainRouter: MainRouterInput {
     
 	weak var viewController: BaseViewController?
     private let settingsModuleAssembly: SettingsModuleAssembly?
+    private let speedModuleAssembly: SpeedModuleAssembly?
     
-    init(settingsModuleAssembly: SettingsModuleAssembly?) {
+    init(
+        settingsModuleAssembly: SettingsModuleAssembly?,
+        speedModuleAssembly: SpeedModuleAssembly?) {
         self.settingsModuleAssembly = settingsModuleAssembly
+        self.speedModuleAssembly = speedModuleAssembly
     }
 
 	// ------------------------------
@@ -21,6 +25,11 @@ class MainRouter: MainRouterInput {
 
     func routeToSettings() {
         guard let controller = settingsModuleAssembly?.assemble() else { return }
+        viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func routeToSpeed() {
+        guard let controller = speedModuleAssembly?.assemble() else { return }
         viewController?.navigationController?.pushViewController(controller, animated: true)
     }
 }

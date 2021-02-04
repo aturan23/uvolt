@@ -109,12 +109,17 @@ class MainViewController: BaseViewController, MainViewInput {
     @objc private func settingsDidTap() {
         output?.showSettingsPage()
     }
+    
+    @objc private func statisticsDidTap() {
+        output?.showSpeedPage()
+    }
 
     private func setupViews() {
         view.backgroundColor = .black
         segmentView.stateChanged = { (selected) in
             print(selected.rawValue)
         }
+        statisticsButton.addTarget(self, action: #selector(statisticsDidTap), for: .touchUpInside)
         
         setupViewsHierarchy()
         setupConstraints()
@@ -147,9 +152,9 @@ class MainViewController: BaseViewController, MainViewInput {
             $0.left.right.equalToSuperview().inset(20)
         }
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(segmentView.snp.bottom).offset(20)
+            $0.top.equalTo(segmentView.snp.bottom).offset(10)
             $0.left.right.equalToSuperview()
-            $0.bottom.equalTo(statisticsButton.snp.top).offset(-20)
+            $0.bottom.equalTo(statisticsButton.snp.top).offset(-10)
         }
         statisticsButton.snp.makeConstraints {
             $0.left.equalTo(14)
@@ -187,6 +192,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         let size: CGFloat = (collectionView.frame.size.width - space) / 2.2
-        return CGSize(width: size, height: size)
+        return CGSize(width: size, height: Constants.cardHeight)
     }
 }

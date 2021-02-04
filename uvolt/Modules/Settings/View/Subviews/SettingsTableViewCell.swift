@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum SettingFrameType {
+enum SettingFrameType: String, Codable {
     case name
     case measurment
     case distance
@@ -28,12 +28,11 @@ enum SettingMeasurmentType: String {
     }
 }
 
-enum Languages: String {
-    case en = "English"
-    case ru = "Русский"
-    var title: String {
-        return self.rawValue
-    }
+protocol SettingCellDelegate: class {
+    func setSettingEditValue(by type: SettingFrameType, value: String?)
+    func setSettingResetValue(by type: SettingFrameType)
+    func setSettingUpdateValue(by type: SettingFrameType)
+    func setSettingUploadValuew(by type: SettingFrameType)
 }
 
 class SettingsTableViewCell: UITableViewCell {
@@ -49,11 +48,11 @@ class SettingsTableViewCell: UITableViewCell {
         static let measurmentComponents: [SettingMeasurmentType] = [.kilometer,
                                                                     .meter,
                                                                     .inch]
-        static let languages: [Languages] = [.en, .ru]
+        static let languages: [SupportedLanguage] = [.en, .ru]
     }
 
     private var frameType: SettingFrameType = .name
-    
+    weak var output: SettingCellDelegate?
     // ------------------------------
     // MARK: - UI components
     // ------------------------------
@@ -137,43 +136,43 @@ class SettingsTableViewCell: UITableViewCell {
         })
     }
     
-    func display(by type: SettingFrameType) {
-        self.frameType = type
-        switch type {
+    func display(by item: SettingItem) {
+        self.frameType = item.type
+        switch item.type {
         case .name:
             titleLabel.text = "Bike Name"
             inputField.keyboardType = .default
-            inputField.text = "My Bike"
+            inputField.text = item.value
             editButton.setTitle("EDIT".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .measurment:
             titleLabel.text = "Unit  of measurment"
             inputField.inputView = pickerView
-            inputField.text = "Kilometers"
+            inputField.text = item.value
             editButton.setTitle("EDIT".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .distance:
             titleLabel.text = "Trip Distance"
             inputField.keyboardType = .decimalPad
-            inputField.text = "1.0"
+            inputField.text = item.value ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .odometer:
             titleLabel.text = "Odometer"
             inputField.keyboardType = .decimalPad
-            inputField.text = "58.9"
+            inputField.text = item.value ?? "--"
             editButton.setTitle("UPLOAD".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: false)
         case .calory:
             titleLabel.text = "Calories Burned"
             inputField.keyboardType = .decimalPad
-            inputField.text = "35.0"
+            inputField.text = item.value ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .cost:
             titleLabel.text = "Cost Per Kwh"
             inputField.keyboardType = .default
-            inputField.text = "--"
+            inputField.text = item.value ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .log:
@@ -204,21 +203,24 @@ class SettingsTableViewCell: UITableViewCell {
     private func editAction() {
         self.endEditing(true)
         inputField.isUserInteractionEnabled.toggle()
+        if !inputField.isUserInteractionEnabled {
+            output?.setSettingEditValue(by: frameType, value: inputField.text)
+        }
         let buttonTitle = inputField.isUserInteractionEnabled ? "SAVE" : "EDIT"
         editButton.setTitle(buttonTitle.localized().uppercased(), for: .normal)
         inputField.becomeFirstResponder()
     }
     
     private func resetAction() {
-        
+        output?.setSettingResetValue(by: frameType)
     }
 
     private func updateAction() {
-        
+        output?.setSettingUpdateValue(by: frameType)
     }
 
     private func uploadAction() {
-        
+        output?.setSettingUploadValuew(by: frameType)
     }
 
     @objc
@@ -250,10 +252,12 @@ extension SettingsTableViewCell: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         frameType == .measurment ?
             Constants.measurmentComponents[row].title:
-            Constants.languages[row].title
+            Constants.languages[row].localizedTitle
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        inputField.text = Constants.measurmentComponents[row].title
+        inputField.text = frameType == .measurment ?
+            Constants.measurmentComponents[row].title:
+            Constants.languages[row].localizedTitle
     }
 }

@@ -66,4 +66,4 @@ final class PasscodeModuleAssembly: PasscodeModuleAssemblying {
 
 Project uses MVVM as micro architecture. Root directory of app contains "Templates" folder for Generamba templates.
 
-run `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - to generate a new module
+run `generamba gen [MODULE_NAME] uvolt_swift_mvvm` - to generate a new module

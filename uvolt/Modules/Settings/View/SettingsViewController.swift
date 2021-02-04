@@ -29,6 +29,12 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
                                                     .language]
     }
     var output: SettingsViewOutput?
+    private var frameList: [SettingItem] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
 
     // ------------------------------
     // MARK: - UI components
@@ -71,7 +77,9 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
     // MARK: - SettingsViewInput
     // ------------------------------
 
-    func display(viewAdapter: SettingsViewAdapter) { }
+    func display(viewAdapter: SettingsViewAdapter) {
+        self.frameList = viewAdapter.items
+    }
 
     // ------------------------------
     // MARK: - Private methods
@@ -107,14 +115,33 @@ class SettingsViewController: BaseViewController, SettingsViewInput {
     }
 }
 
+extension SettingsViewController: SettingCellDelegate {
+    func setSettingEditValue(by type: SettingFrameType, value: String?) {
+        output?.setItemValue(by: type, value: value)
+    }
+    
+    func setSettingResetValue(by type: SettingFrameType) {
+        output?.setItemValue(by: type, value: nil)
+    }
+    
+    func setSettingUpdateValue(by type: SettingFrameType) {
+        output?.setItemValue(by: type, value: nil)
+    }
+    
+    func setSettingUploadValuew(by type: SettingFrameType) {
+        output?.setItemValue(by: type, value: nil)
+    }
+}
+
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Constants.frameList.count
+        frameList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SettingsTableViewCell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier) as! SettingsTableViewCell
-        cell.display(by: Constants.frameList[indexPath.row])
+        cell.display(by: frameList[indexPath.row])
+        cell.output = self
         
         return cell
     }

@@ -8,4 +8,5 @@
 
 protocol MainRouterInput {
     func routeToSettings()
+    func routeToSpeed()
 }
