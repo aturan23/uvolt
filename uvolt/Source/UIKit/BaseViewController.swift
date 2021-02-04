@@ -20,7 +20,8 @@ class BaseViewController: UIViewController {
     }
     
     var safeAreaBottomInset: CGFloat {
-        return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        let inset = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        return inset == 0 ? 8 : inset
     }
     
     // ------------------------------

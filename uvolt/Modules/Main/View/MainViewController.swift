@@ -165,9 +165,9 @@ class MainViewController: BaseViewController, MainViewInput {
             $0.left.right.equalToSuperview().inset(20)
         }
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(segmentView.snp.bottom).offset(20)
+            $0.top.equalTo(segmentView.snp.bottom).offset(10)
             $0.left.right.equalToSuperview()
-            $0.bottom.equalTo(statisticsButton.snp.top).offset(-20)
+            $0.bottom.equalTo(statisticsButton.snp.top).offset(-10)
         }
         statisticsButton.snp.makeConstraints {
             $0.left.equalTo(14)
