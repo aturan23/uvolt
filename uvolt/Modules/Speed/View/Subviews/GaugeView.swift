@@ -52,6 +52,8 @@ class GaugeView: UIView {
     private let points = 24
     
     private lazy var progressLayer = buildDefaultLayer()
+    private lazy var smallProgressLayer = buildDefaultLayer()
+    
     private lazy var borderLayer = buildDefaultLayer()
     private lazy var smallBorderLayer = buildDefaultLayer()
     
@@ -69,15 +71,19 @@ class GaugeView: UIView {
     
     override open func draw(_ rect: CGRect) {
         let smallThickness: CGFloat = 7
+        let smallAndRingThickness = smallThickness + ringThickness
         // Progress Layer
         addLayer(progressLayer)
-        drawBorderedLayer(&progressLayer, thickness: ringThickness + smallThickness)
+        drawBorderedLayer(&progressLayer, thickness: ringThickness, radiusDiff: smallAndRingThickness)
         
         addLayer(borderLayer)
-        drawBorderedLayer(&borderLayer, thickness: smallThickness)
+        drawBorderedLayer(&borderLayer, thickness: smallThickness, radiusDiff: smallThickness)
         
         addLayer(smallBorderLayer)
-        drawBorderedGrayLayer(&smallBorderLayer, thickness: smallThickness)
+        drawBorderedLayer(&smallBorderLayer, thickness: smallThickness, radiusDiff: smallAndRingThickness * 2)
+        
+        addLayer(smallProgressLayer)
+        drawBorderedLayer(&smallProgressLayer, thickness: ringThickness / 2, radiusDiff: (smallAndRingThickness + ringThickness / 3) * 2)
         
         addInnerIndicators(thickness: smallThickness)
         setupValueAndMeasurementViews()
@@ -87,6 +93,8 @@ class GaugeView: UIView {
         // Set progress for ring layer
         let progress = maxValue != 0 ? (value - minValue)/(maxValue - minValue) : 0
         progressLayer.strokeEnd = CGFloat(progress)
+        smallProgressLayer.strokeEnd = CGFloat(progress)
+        
         borderLayer.strokeEnd = CGFloat(maxValue)
         smallBorderLayer.strokeEnd = CGFloat(maxValue)
         
@@ -96,6 +104,7 @@ class GaugeView: UIView {
             ringColor = delegate.ringStokeColor(gaugeView: self, value: value)
         }
         progressLayer.strokeColor = ringColor.cgColor
+        smallProgressLayer.strokeColor = ringColor.withAlphaComponent(0.3).cgColor
         borderLayer.strokeColor = UIColor.white.cgColor
         smallBorderLayer.strokeColor = Color.textHighContrast.cgColor
     }
@@ -105,6 +114,8 @@ class GaugeView: UIView {
         if valueLabel.superview == nil {
             addSubview(valueLabel)
         }
+        valueLabel.adjustsFontSizeToFitWidth = true
+        valueLabel.minimumScaleFactor = 0.5
         valueLabel.text = String(format: "%.0f", value)
         valueLabel.textColor = valueTextColor
         let insetX = ringThickness
@@ -124,8 +135,8 @@ class GaugeView: UIView {
     }
     
     private func drawBorderedLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat, radiusDiff: CGFloat = 0) {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = min(bounds.width, bounds.height) / 2 - thickness / 2
+        let center = CGPoint(x: bounds.width/2, y: bounds.height / 2)
+        let radius: CGFloat = min(bounds.width, bounds.height) / 2 - radiusDiff / 2
         
         subLayer.frame = CGRect(x: center.x - radius - thickness / 2,
                                 y: center.y - radius - thickness / 2,
@@ -139,24 +150,6 @@ class GaugeView: UIView {
                                         clockwise: true)
         subLayer.path = smoothedPath.cgPath
         subLayer.lineWidth = CGFloat(thickness)
-    }
-    
-    private func drawBorderedGrayLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
-        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        let radius: CGFloat = min(bounds.width, bounds.height) / 2 - (thickness + ringThickness)
-        
-        subLayer.frame = CGRect(x: center.x - radius - thickness / 2,
-                                y: center.y - radius - thickness / 2,
-                                width: (radius + thickness / 2 ) * 2,
-                                height: (radius + thickness / 2) * 2)
-        subLayer.bounds = subLayer.frame
-        let smoothedPath = UIBezierPath(arcCenter: subLayer.position,
-                                        radius: radius,
-                                        startAngle: startAngle,
-                                        endAngle: endAngle,
-                                        clockwise: true)
-        subLayer.path = smoothedPath.cgPath
-        subLayer.lineWidth = thickness
     }
     
     private func addInnerIndicators(thickness: CGFloat) {
