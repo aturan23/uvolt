@@ -51,24 +51,9 @@ class GaugeView: UIView {
     private var endAngle: CGFloat = .pi/4 + .pi * 2
     private let points = 24
     
-    private lazy var progressLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.contentsScale = UIScreen.main.scale
-        layer.fillColor = UIColor.clear.cgColor
-        layer.lineCap = CAShapeLayerLineCap.butt
-        layer.lineJoin = CAShapeLayerLineJoin.bevel
-        layer.strokeEnd = 0
-        return layer
-    }()
-    private lazy var borderLayer: CAShapeLayer = {
-        let layer = CAShapeLayer()
-        layer.contentsScale = UIScreen.main.scale
-        layer.fillColor = UIColor.clear.cgColor
-        layer.lineCap = CAShapeLayerLineCap.butt
-        layer.lineJoin = CAShapeLayerLineJoin.bevel
-        layer.strokeEnd = 0
-        return layer
-    }()
+    private lazy var progressLayer = buildDefaultLayer()
+    private lazy var borderLayer = buildDefaultLayer()
+    private lazy var smallBorderLayer = buildDefaultLayer()
     
     private lazy var valueLabel = labelFactory.make(
         withStyle: .headingH1,
@@ -86,9 +71,14 @@ class GaugeView: UIView {
         let smallThickness: CGFloat = 7
         // Progress Layer
         addLayer(progressLayer)
-        drawBorderedLayer(&progressLayer, thickness: ringThickness)
+        drawBorderedLayer(&progressLayer, thickness: ringThickness + smallThickness)
+        
         addLayer(borderLayer)
         drawBorderedLayer(&borderLayer, thickness: smallThickness)
+        
+        addLayer(smallBorderLayer)
+        drawBorderedGrayLayer(&smallBorderLayer, thickness: smallThickness)
+        
         addInnerIndicators(thickness: smallThickness)
         setupValueAndMeasurementViews()
     }
@@ -98,6 +88,7 @@ class GaugeView: UIView {
         let progress = maxValue != 0 ? (value - minValue)/(maxValue - minValue) : 0
         progressLayer.strokeEnd = CGFloat(progress)
         borderLayer.strokeEnd = CGFloat(maxValue)
+        smallBorderLayer.strokeEnd = CGFloat(maxValue)
         
         // Set ring stroke color
         var ringColor = UIColor(red: 76.0/255, green: 217.0/255, blue: 100.0/255, alpha: 1)
@@ -106,6 +97,7 @@ class GaugeView: UIView {
         }
         progressLayer.strokeColor = ringColor.cgColor
         borderLayer.strokeColor = UIColor.white.cgColor
+        smallBorderLayer.strokeColor = Color.textHighContrast.cgColor
     }
     
     private func setupValueAndMeasurementViews() {
@@ -131,14 +123,14 @@ class GaugeView: UIView {
         
     }
     
-    private func drawBorderedLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
+    private func drawBorderedLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat, radiusDiff: CGFloat = 0) {
         let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = (min(bounds.width, bounds.height))/2 - thickness/2
+        let radius: CGFloat = min(bounds.width, bounds.height) / 2 - thickness / 2
         
-        subLayer.frame = CGRect(x: center.x - radius - CGFloat(thickness)/2,
-                                y: center.y - radius - CGFloat(thickness)/2,
-                                width: (radius + CGFloat(thickness)/2) * 2,
-                                height: (radius + CGFloat(thickness)/2) * 2)
+        subLayer.frame = CGRect(x: center.x - radius - thickness / 2,
+                                y: center.y - radius - thickness / 2,
+                                width: (radius + thickness / 2 ) * 2,
+                                height: (radius + thickness / 2) * 2)
         subLayer.bounds = subLayer.frame
         let smoothedPath = UIBezierPath(arcCenter: subLayer.position,
                                         radius: radius,
@@ -150,13 +142,13 @@ class GaugeView: UIView {
     }
     
     private func drawBorderedGrayLayer(_ subLayer: inout CAShapeLayer, thickness: CGFloat) {
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
-        let radius: CGFloat = (min(bounds.width, bounds.height))/2
+        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let radius: CGFloat = min(bounds.width, bounds.height) / 2 - (thickness + ringThickness)
         
-        subLayer.frame = CGRect(x: center.x - radius - CGFloat(thickness)/2,
-                                y: center.y - radius - CGFloat(thickness)/2,
-                                width: (radius + CGFloat(thickness)/2) * 2,
-                                height: (radius + CGFloat(thickness)/2) * 2)
+        subLayer.frame = CGRect(x: center.x - radius - thickness / 2,
+                                y: center.y - radius - thickness / 2,
+                                width: (radius + thickness / 2 ) * 2,
+                                height: (radius + thickness / 2) * 2)
         subLayer.bounds = subLayer.frame
         let smoothedPath = UIBezierPath(arcCenter: subLayer.position,
                                         radius: radius,
@@ -164,12 +156,12 @@ class GaugeView: UIView {
                                         endAngle: endAngle,
                                         clockwise: true)
         subLayer.path = smoothedPath.cgPath
-        subLayer.lineWidth = CGFloat(thickness)
+        subLayer.lineWidth = thickness
     }
     
     private func addInnerIndicators(thickness: CGFloat) {
+        let center = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
         let radius = min(bounds.width, bounds.height) / 2 - thickness
-        let center = CGPoint(x: bounds.width/2, y: bounds.height/2)
         let circlePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
@@ -220,5 +212,15 @@ class GaugeView: UIView {
             imageView.snp.makeConstraints { $0.center.equalToSuperview() }
         }
         return view
+    }
+    
+    private func buildDefaultLayer() -> CAShapeLayer {
+        let layer = CAShapeLayer()
+        layer.contentsScale = UIScreen.main.scale
+        layer.fillColor = UIColor.clear.cgColor
+        layer.lineCap = CAShapeLayerLineCap.butt
+        layer.lineJoin = CAShapeLayerLineJoin.bevel
+        layer.strokeEnd = 0
+        return layer
     }
 }
