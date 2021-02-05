@@ -72,7 +72,7 @@ open class Button: UIButton {
     */
     var isDisabled: Bool = false {
         didSet {
-            isUserInteractionEnabled = !isDisabled
+            isEnabled = !isDisabled
             if isDisabled {
                 backgroundColor = disabledStateBackgroundColor?.withAlphaComponent(0.7)
             } else {

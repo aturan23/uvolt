@@ -30,23 +30,6 @@ class MainViewController: BaseViewController, MainViewInput {
     // MARK: - UI components
     // ------------------------------
 
-    private lazy var navigationBar: UINavigationBar = {
-        let bar = UINavigationBar()
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "INFORMATION_CENTRE".localized().capitalized
-        
-        let gearItem = UIBarButtonItem(
-            image: UIImage(named: "gear"),
-            style: .plain,
-            target: self,
-            action: #selector(settingsDidTap))
-        navigationItem.rightBarButtonItem = gearItem
-        bar.setItems([navigationItem], animated: false)
-        bar.tintColor = .blue
-        bar.setBackgroundImage(UIImage(), for: .default)
-        bar.shadowImage = UIImage()
-        return bar
-    }()
     private let frameRoundedView = InformationRoundedView()
     private let chargeRoundedView = InformationRoundedView()
     private let segmentView = PeriodSegmentControlView()
@@ -86,7 +69,15 @@ class MainViewController: BaseViewController, MainViewInput {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationItem.title = "INFORMATION_CENTRE".localized().capitalized
+        let gearItem = UIBarButtonItem(
+            image: UIImage(named: "gear"),
+            style: .plain,
+            target: self,
+            action: #selector(settingsDidTap))
+        navigationItem.rightBarButtonItem = gearItem
+
+
     }
 
     override func viewDidLoad() {
@@ -98,6 +89,7 @@ class MainViewController: BaseViewController, MainViewInput {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationItem.title = ""
     }
 
     // ------------------------------
@@ -134,8 +126,7 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupViewsHierarchy() {
-        [navigationBar,
-         frameRoundedView,
+        [frameRoundedView,
          chargeRoundedView,
          segmentView,
          collectionView,
@@ -144,18 +135,14 @@ class MainViewController: BaseViewController, MainViewInput {
     }
 
     private func setupConstraints() {
-        navigationBar.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.left.right.equalToSuperview()
-        }
         frameRoundedView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.top.equalTo(16)
             $0.left.equalTo(16)
             $0.height.equalTo(Constants.cardHeight)
             $0.width.equalToSuperview().multipliedBy(0.454)
         }
         chargeRoundedView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaTopInset)
+            $0.top.equalTo(16)
             $0.right.equalTo(-16)
             $0.height.equalTo(Constants.cardHeight)
             $0.width.equalToSuperview().multipliedBy(0.454)

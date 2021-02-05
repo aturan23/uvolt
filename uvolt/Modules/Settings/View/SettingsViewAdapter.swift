@@ -7,4 +7,24 @@
 //
 
 /// Default ViewModel passed to View layer for displaying
-struct SettingsViewAdapter { }
+import CoreData
+
+struct SettingsViewAdapter: Codable {
+    var items: [SettingItem]
+    
+    func toJSON() -> String? {
+        do {
+            let jsonData = try JSONEncoder().encode(items)
+            return String(data: jsonData, encoding: .utf8)
+        } catch let error {
+            print("error converting to json: \(error)")
+            return nil
+        }
+    }
+
+}
+
+struct SettingItem: Codable {
+    var type: SettingFrameType
+    var value: String? = nil
+}

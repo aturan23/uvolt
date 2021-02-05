@@ -47,10 +47,21 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
     // MARK: - Life cycle
     // ------------------------------
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "CONNECT".localized()
+        navigationItem.setHidesBackButton(true, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         output?.didLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationItem.title = ""
     }
 
     // ------------------------------
@@ -67,8 +78,6 @@ class ConnectViewController: BaseViewController, ConnectViewInput {
 
     private func setupViews() {
         view.backgroundColor = .black
-        title = "CONNECT".localized()
-        navigationItem.setHidesBackButton(true, animated: true)
         
         setupViewsHierarchy()
         setupConstraints()
