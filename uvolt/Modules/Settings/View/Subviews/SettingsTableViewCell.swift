@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum SettingFrameType: String, Codable {
+enum SettingFrameType {
     case name
     case measurment
     case distance
@@ -142,37 +142,39 @@ class SettingsTableViewCell: UITableViewCell {
         case .name:
             titleLabel.text = "Bike Name"
             inputField.keyboardType = .default
-            inputField.text = item.value
+            inputField.text = item.value as? String
             editButton.setTitle("EDIT".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .measurment:
             titleLabel.text = "Unit  of measurment"
             inputField.inputView = pickerView
-            inputField.text = item.value
+            let itemMeasurmentType = (item.value as? SettingMeasurmentType) ?? .kilometer
+            inputField.text = Constants.measurmentComponents.first(where: {
+                $0 == itemMeasurmentType })?.title
             editButton.setTitle("EDIT".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .distance:
             titleLabel.text = "Trip Distance"
             inputField.keyboardType = .decimalPad
-            inputField.text = item.value ?? "--"
+            inputField.text = (item.value as? Double)?.description ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .odometer:
             titleLabel.text = "Odometer"
             inputField.keyboardType = .decimalPad
-            inputField.text = item.value ?? "--"
+            inputField.text = (item.value as? Double)?.description ?? "--"
             editButton.setTitle("UPLOAD".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: false)
         case .calory:
             titleLabel.text = "Calories Burned"
             inputField.keyboardType = .decimalPad
-            inputField.text = item.value ?? "--"
+            inputField.text = (item.value as? Double)?.description ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .cost:
             titleLabel.text = "Cost Per Kwh"
             inputField.keyboardType = .default
-            inputField.text = item.value ?? "--"
+            inputField.text = (item.value as? Double)?.description ?? "--"
             editButton.setTitle("RESET".localized().uppercased(), for: .normal)
             enableEditButton(isEnabled: true)
         case .log:

@@ -99,9 +99,9 @@ class PreloadViewController: BaseViewController, PreloadViewInput {
         UIView.animate(withDuration: 5, animations: { [weak self] in
             self?.progressView.setProgress(1, animated: true)
         }, completion: { (_) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 completion()
-            }
+//            }
         })
     }
 }

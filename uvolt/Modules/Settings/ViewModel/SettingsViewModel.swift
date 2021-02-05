@@ -65,7 +65,29 @@ class SettingsViewModel: SettingsViewOutput {
     private func setToCore(adapter: SettingsViewAdapter) {
         let entity = NSEntityDescription.entity(forEntityName: "Settings", in: context)
         let settings = NSManagedObject(entity: entity!, insertInto: context)
-        settings.setValue(adapter.toJSON(), forKey: "settingsAdapter")
+
+        adapter.items.forEach { (item) in
+            switch item.type {
+            case .name:
+                settings.setValue(item.value as? String, forKey: "bikeName")
+            case .measurment:
+                settings.setValue(item.value as? String, forKey: "measurment")
+            case .distance:
+                settings.setValue(item.value as? Double, forKey: "distance")
+            case .odometer:
+                settings.setValue(item.value as? Double, forKey: "odometer")
+            case .calory:
+                settings.setValue(item.value as? Double, forKey: "calory")
+            case .cost:
+                settings.setValue(item.value as? Double, forKey: "cost")
+            case .log:
+                settings.setValue(item.value as? String, forKey: "log")
+            case .firmware:
+                settings.setValue(item.value as? String, forKey: "firmware")
+            case .language:
+                settings.setValue(item.value as? String, forKey: "language")
+            }
+        }
         
         do {
             try context.save()
@@ -78,19 +100,33 @@ class SettingsViewModel: SettingsViewOutput {
     private func getAdapter() -> SettingsViewAdapter {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Settings")
         request.returnsObjectsAsFaults = false
-
+        
         do {
             let result = try context.fetch(request)
             for data in result as! [NSManagedObject] {
-                if let jsonString = data.value(forKey: "settingsAdapter") as? String {
-                    let jsonData = Data(jsonString.utf8)
-                    do {
-                        let items = try JSONDecoder().decode([SettingItem].self, from: jsonData)
-                        return SettingsViewAdapter(items: items)
-                    }
-                }
+                let bikeName = data.value(forKey: "bikeName") as? String
+                let measurment = data.value(forKey: "measurment") as? String
+                let distance = data.value(forKey: "distance") as? Double
+                let odometer = data.value(forKey: "odometer") as? Double
+                let calory = data.value(forKey: "calory") as? Double
+                let cost = data.value(forKey: "cost") as? Double
+                let log = data.value(forKey: "log") as? String
+                let firmware = data.value(forKey: "firmware") as? String
+                let language = data.value(forKey: "language") as? String
+                
+                var items: [SettingItem] = []
+                items.append(SettingItem(type: .name, value: bikeName))
+                items.append(SettingItem(type: .measurment, value: measurment))
+                items.append(SettingItem(type: .distance, value: distance))
+                items.append(SettingItem(type: .odometer, value: odometer))
+                items.append(SettingItem(type: .calory, value: calory))
+                items.append(SettingItem(type: .cost, value: cost))
+                items.append(SettingItem(type: .log, value: log))
+                items.append(SettingItem(type: .firmware, value: firmware))
+                items.append(SettingItem(type: .language, value: language))
+                
+                return SettingsViewAdapter(items: items)
             }
-            
         } catch {
             print("Failed")
         }
